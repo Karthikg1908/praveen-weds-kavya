@@ -10609,3 +10609,358 @@ body.signature-premium{
     height:11px!important;
   }
 }
+
+
+
+/* ================================================================
+   V42.6.35 — SMOOTH THEATRE-CURTAIN ENTRANCE
+   The V42.6.34 polygon morph is replaced by a soft, PRE-RASTERIZED
+   curved fabric edge. Only transform and opacity change frame-to-frame.
+   No moving lights, filter animation, complex clip-path, or page redesign.
+   ================================================================ */
+.luxury-cover .silk-curtain-stage {
+  position:absolute;
+  inset:0;
+  z-index:8;
+  overflow:hidden;
+  isolation:isolate;
+  pointer-events:none;
+}
+.luxury-cover .silk-curtain-panel {
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50.12%;
+  background:transparent none center center / 100% 100% no-repeat;
+  box-shadow:inset 0 0 26px rgba(65,39,73,.10);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform:translate3d(0,0,0) scaleX(1);
+  will-change:transform;
+  contain:paint;
+  animation:none;
+  transition:none;
+}
+.luxury-cover .silk-curtain-left {
+  left:0;
+  transform-origin:0% 50%;
+  background-image:url("assets/silk-curtain-left.webp");
+}
+.luxury-cover .silk-curtain-right {
+  right:0;
+  transform-origin:100% 50%;
+  background-image:url("assets/silk-curtain-right.webp");
+}
+/* Static silk pleats: no painted gradients or masks change during motion. */
+.luxury-cover .silk-curtain-panel::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.19;
+  background:repeating-linear-gradient(90deg,
+    rgba(255,255,255,.14) 0%, transparent 8%,
+    rgba(81,46,89,.11) 16%, transparent 24%);
+  pointer-events:none;
+}
+.luxury-cover .silk-curtain-panel::after,
+.luxury-cover .silk-curtain-swag,
+.luxury-cover .silk-curtain-centerline { display:none!important; }
+/* One unmoving valance along the top of the stage. */
+.luxury-cover .silk-curtain-valance {
+  position:absolute;
+  inset:0 0 auto;
+  height:min(24vh,205px);
+  z-index:9;
+  background:url("assets/silk-stage-valance.svg") center top / 100% 100% no-repeat;
+  pointer-events:none;
+  transform:translateZ(0);
+}
+.luxury-cover .silk-curtain-valance span { display:none!important; }
+/* Existing invitation remains above the closed curtains and clickable. */
+.luxury-cover:not(.curtain-activated) .opening-frame-shell{z-index:20!important;}
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox {
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  transition:opacity .36s ease!important;
+}
+.luxury-cover.curtain-activated .opening-frame-shell{pointer-events:none!important;}
+.luxury-cover .opening-split-stage{display:none!important;}
+/* A single smooth easing curve makes the gathering continuous, never jerky. */
+@keyframes weddingSilkSmoothDraw {
+  from { transform:translate3d(0,0,0) scaleX(1); }
+  to   { transform:translate3d(0,0,0) scaleX(.17); }
+}
+.luxury-cover.curtain-opening .silk-curtain-left,
+.luxury-cover.curtain-opening .silk-curtain-right {
+  animation:weddingSilkSmoothDraw 4.45s cubic-bezier(.42,.05,.55,.96) both!important;
+}
+/* Calm reveal: no blurring of the main page or large moving glows. */
+.luxury-cover.curtain-activated .opening-home-veil {
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:opacity 2.35s cubic-bezier(.22,.52,.35,1)!important;
+}
+.luxury-cover.curtain-activated.opening-frame-splitting .opening-home-veil{
+  opacity:0!important;
+}
+.luxury-cover.curtain-activated .floating-specks,
+.luxury-cover.curtain-activated .cover-photo{
+  animation-play-state:paused!important;
+}
+@media(max-width:620px){
+  .luxury-cover .silk-curtain-valance{height:min(17vh,145px);}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right{
+    animation-duration:.85s!important;
+    animation-timing-function:ease-out!important;
+  }
+  .luxury-cover.curtain-activated .opening-home-veil{
+    transition-duration:.62s!important;
+  }
+  .luxury-cover.curtain-activated .opening-frame-shell > #invitationBox{
+    transition-duration:.12s!important;
+  }
+}
+
+
+/* =============================================================
+   V42.6.36 — STAGE WELCOME CARD / CURTAIN UNVEIL CONTROL
+   Entrance screen only. Existing V42.6.35 silk curtain animation,
+   script event binding, and every other site section are preserved.
+   ============================================================= */
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(170,141,188,.17), transparent 53%),
+    linear-gradient(155deg, #45334f 0%, #34253e 51%, #291d32 100%)!important;
+  border:1px solid rgba(231,208,174,.38)!important;
+  box-shadow:0 28px 74px rgba(30,18,38,.33),inset 0 0 0 1px rgba(255,255,255,.045)!important;
+  padding-top:clamp(34px,4.5vh,48px)!important;
+  padding-bottom:clamp(24px,3.5vh,36px)!important;
+  gap:0!important;
+}
+.luxury-cover .stage-welcome-card .box-frame{border-color:rgba(225,200,162,.22)!important;}
+.luxury-cover .stage-welcome-card .corner-ornament{opacity:.52;color:#e3cda7!important;}
+.luxury-cover .stage-welcome-kicker{
+  display:flex;align-items:center;justify-content:center;
+  width:min(410px,90%);gap:12px;margin:0 auto clamp(12px,2.3vh,22px);
+  font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:.23em;line-height:1.5;color:#ead7b5;
+  white-space:nowrap;text-transform:uppercase;
+}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line{height:1px;flex:1;min-width:10px;background:linear-gradient(90deg,transparent,rgba(226,194,145,.65));}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line:last-child{transform:scaleX(-1)}
+.luxury-cover .stage-welcome-card .ganesha-opening-block{
+  width:min(540px,94%)!important;
+  margin:0 auto clamp(13px,3.1vh,28px)!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-emblem{color:#e8d9b9!important;filter:none!important;}
+.luxury-cover .stage-welcome-card .ganesha-blessing{color:#e5d9ed!important;}
+.luxury-cover .stage-welcome-card .opening-couple-names{
+  color:#fff9ff!important;
+  text-shadow:0 6px 24px rgba(18,9,25,.17)!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names i{color:#e8c899!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider{color:#e6c58e!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span{background:linear-gradient(90deg,transparent,rgba(232,198,148,.64))!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span:last-child{background:linear-gradient(90deg,rgba(232,198,148,.64),transparent)!important;}
+.luxury-cover .stage-welcome-card .opening-kannada-line{color:#e2d5ed!important;}
+.luxury-cover .stage-welcome-card .welcome-message-premium{color:rgba(251,244,253,.81)!important;font-size:clamp(12px,1.5vw,15px)!important;line-height:1.65!important;max-width:420px!important;}
+.luxury-cover .stage-entry-actions{
+  position:relative;z-index:24;display:flex;flex-direction:column;align-items:center;
+  width:100%;margin:0 auto;
+}
+/* Override old round wax-seal visuals without affecting the click event. */
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button{
+  appearance:none!important;
+  position:relative!important;isolation:isolate!important;
+  width:min(320px,94%)!important;min-width:0!important;
+  height:66px!important;min-height:66px!important;
+  margin:0!important;padding:8px 16px 8px 12px!important;
+  display:flex!important;flex-direction:row!important;
+  align-items:center!important;justify-content:space-between!important;gap:12px!important;
+  overflow:hidden!important;border-radius:12px!important;
+  background:linear-gradient(115deg,#f7f0e9 0%,#e9deea 50%,#f9efe0 100%)!important;
+  border:1px solid rgba(241,212,162,.94)!important;
+  color:#34233e!important;text-align:left!important;cursor:pointer!important;
+  animation:none!important;
+  box-shadow:0 9px 23px rgba(17,10,23,.22),inset 0 1px 0 rgba(255,255,255,.8)!important;
+  transform:none!important;
+  transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease!important;
+}
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button::before,
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button::after{
+  content:none!important;display:none!important;animation:none!important;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-symbol{
+  width:43px;height:43px;flex:0 0 43px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#6a5079,#493350);
+  color:#f5dfb7;border-radius:9px;
+  border:1px solid rgba(224,184,126,.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13);
+}
+.luxury-cover .stage-entry-actions .stage-unveil-symbol svg{
+  width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.55;
+  stroke-linejoin:round;stroke-linecap:round;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-type{
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  flex:1;min-width:0;gap:3px;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-type strong{
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.15em;white-space:nowrap;color:#3b2946;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-type small{
+  font-family:'Cormorant Garamond',serif;font-size:15px;
+  font-weight:600;letter-spacing:.02em;color:#705777;line-height:1;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-arrow{
+  display:flex;align-items:center;justify-content:center;flex:0 0 24px;
+  font-size:22px;line-height:1;color:#84648b;
+  transition:transform .25s ease;
+}
+.luxury-cover .stage-entry-actions .stage-enter-hint{
+  position:relative!important;margin:14px 0 0!important;
+  color:rgba(248,239,250,.7)!important;
+  font-family:'DM Sans',sans-serif;font-size:9px!important;
+  letter-spacing:.09em!important;line-height:1.45!important;
+  text-transform:none!important;text-align:center;
+}
+@media(hover:hover){
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:hover{
+    transform:translateY(-2px)!important;
+    box-shadow:0 14px 30px rgba(17,10,23,.3),0 0 0 1px rgba(232,199,146,.3),inset 0 1px 0 #fff!important;
+  }
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:hover .stage-unveil-arrow{transform:translateX(4px);}
+}
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:focus-visible{
+  outline:3px solid #e7cb8c!important;outline-offset:5px!important;
+}
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:active{transform:scale(.985)!important;}
+@media(max-width:620px){
+  .luxury-cover .stage-welcome-kicker{gap:8px;font-size:7px;letter-spacing:.18em;margin-bottom:17px;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{width:97%!important;margin-bottom:22px!important;}
+  .luxury-cover .stage-welcome-card .welcome-message-premium{font-size:11.7px!important;max-width:300px!important;}
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button{
+    width:min(290px,93%)!important;
+    height:62px!important;min-height:62px!important;
+    padding:7px 12px 7px 8px!important;gap:10px!important;
+  }
+  .luxury-cover .stage-entry-actions .stage-unveil-type strong{font-size:10px;letter-spacing:.14em;}
+  .luxury-cover .stage-entry-actions .stage-unveil-type small{font-size:14px;}
+  .luxury-cover .stage-entry-actions .stage-unveil-symbol{width:43px;height:43px;flex-basis:43px;}
+  .luxury-cover .stage-entry-actions .stage-enter-hint{font-size:9px!important;}
+}
+@media(max-height:700px){
+  .luxury-cover .stage-welcome-kicker{margin-bottom:8px;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{margin-bottom:13px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-emblem{width:52px!important;height:52px!important;margin-bottom:4px!important;}
+  .luxury-cover .stage-welcome-card .opening-name-divider{margin:9px auto 7px!important;}
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button{height:56px!important;min-height:56px!important;}
+  .luxury-cover .stage-entry-actions .stage-enter-hint{margin-top:8px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover .stage-entry-actions .stage-unveil-arrow{transition:none!important;}
+}
+
+
+/* ===============================================================
+   V42.6.37 — REFINED MINIMAL "TAP TO ENTER" WELCOME
+   Only the opening CTA/card micro-spacing. Curtain animation and
+   the remaining website remain exactly as in V42.6.36.
+   =============================================================== */
+.luxury-cover .stage-entry-actions.stage-entry-minimal {
+  width:100%;
+  margin:clamp(2px,1vh,10px) auto 0!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button {
+  box-sizing:border-box!important;
+  appearance:none!important;
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:20px!important;
+  flex-direction:row!important;
+  width:min(252px,87%)!important;
+  height:58px!important;
+  min-height:58px!important;
+  min-width:0!important;
+  padding:8px 21px!important;
+  margin:0!important;
+  border-radius:999px!important;
+  border:1px solid rgba(242,212,166,.85)!important;
+  color:#493352!important;
+  background:linear-gradient(110deg,#f8f0e9 0%,#f0e5f0 52%,#faf1e7 100%)!important;
+  box-shadow:0 12px 26px rgba(17,9,24,.26),inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 1px rgba(226,190,143,.13)!important;
+  cursor:pointer!important;
+  isolation:isolate!important;
+  text-align:center!important;
+  overflow:hidden!important;
+  animation:none!important;
+  transform:translate3d(0,0,0)!important;
+  transition:transform .28s cubic-bezier(.2,.7,.24,1),box-shadow .28s ease!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after {
+  display:none!important;
+  content:none!important;
+}
+.luxury-cover .stage-entry-minimal .stage-enter-label {
+  color:#493352;
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-weight:600;
+  font-size:clamp(22px,2.2vw,26px);
+  letter-spacing:.015em;
+  line-height:1;
+  white-space:nowrap;
+  text-transform:none;
+}
+.luxury-cover .stage-entry-minimal .stage-enter-ornament {
+  font-family:Georgia,serif;
+  color:#ac8656;
+  font-size:11px;
+  line-height:1;
+  flex:none;
+  opacity:.93;
+}
+@media (hover:hover) {
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover {
+    transform:translate3d(0,-2px,0)!important;
+    box-shadow:0 16px 30px rgba(17,9,24,.32),inset 0 0 0 2px rgba(255,255,255,.58),0 0 0 2px rgba(234,199,151,.36)!important;
+  }
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:active {
+  transform:translate3d(0,1px,0)!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:focus-visible {
+  outline:3px solid #f1d29f!important;
+  outline-offset:5px!important;
+}
+@media(max-width:620px) {
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button {
+    width:min(230px,82%)!important;
+    height:54px!important;
+    min-height:54px!important;
+    gap:16px!important;
+    padding:7px 18px!important;
+  }
+  .luxury-cover .stage-entry-minimal .stage-enter-label{font-size:23px;}
+  .luxury-cover .stage-entry-minimal .stage-enter-ornament{font-size:10px;}
+}
+@media(max-height:700px) {
+  .luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:1px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+    height:49px!important;min-height:49px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{transition:none!important;}
+}

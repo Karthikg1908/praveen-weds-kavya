@@ -327,33 +327,38 @@
       return;
     }
 
-    // Phase 1: freeze non-essential decorative motion and swap the single
-    // invitation card for two perfectly aligned 50% halves.
-    cover.classList.add("opening-active");
-    openingFrameShell.classList.add("split-ready");
+    // V42.6.35: Smooth, GPU-composited silk gathering.  The fabric's
+    // curved silhouette is static; only the two transforms animate.
+    cover.classList.add("opening-active", "curtain-activated");
 
-    // Phase 2: give the browser two paint frames to promote both halves to
-    // compositor layers before movement starts. This avoids the first-frame
-    // hitch that was visible on mobile devices.
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        openingFrameShell.classList.add("is-splitting");
+    const curtain = qs(".silk-curtain-left", cover);
+    const introPause = prefersReducedMotion ? 100 : 410;
+    const expectedDraw = prefersReducedMotion ? 850 : 4450;
+    const finalHold = prefersReducedMotion ? 80 : 340;
+    let openingFinished = false;
+
+    const onCurtainsOpened = () => {
+      if (openingFinished) return;
+      openingFinished = true;
+      window.setTimeout(finishOpening, finalHold);
+    };
+    if (curtain) {
+      curtain.addEventListener("animationend", event => {
+        if (event.target === curtain && event.animationName === "weddingSilkSmoothDraw") {
+          onCurtainsOpened();
+        }
       });
-    });
-
-    // Phase 3: begin revealing the homepage while the doors are already in
-    // motion. The reveal now uses opacity only (no animated backdrop blur).
+    }
     window.setTimeout(() => {
-      cover.classList.add("opening-frame-splitting");
-    }, 360);
-
-    // Phase 4: after the full 50/50 travel completes, hold very briefly and
-    // fade the panels using opacity only.
-    window.setTimeout(() => {
-      openingFrameShell.classList.add("split-fade");
-    }, 1880);
-
-    window.setTimeout(finishOpening, 2340);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => cover.classList.add("curtain-opening"));
+      });
+    }, introPause);
+    // Let the page emerge only after guests see the curtains moving.
+    window.setTimeout(() => cover.classList.add("opening-frame-splitting"),
+      introPause + (prefersReducedMotion ? 80 : 680));
+    // Reliable fallback for browsers that don't fire animationend.
+    window.setTimeout(onCurtainsOpened, introPause + expectedDraw + 350);
   }
 
   if (openInvitation) {
