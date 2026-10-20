@@ -10964,3 +10964,154 @@ body.signature-premium{
 @media(prefers-reduced-motion:reduce) {
   .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{transition:none!important;}
 }
+
+
+/* ===============================================================
+   V42.6.38 — GRAND STAGE DRAPE + MATCHING ENTRY SCREEN
+   Refines only the opening experience. Adds richer top drapery,
+   a slight upper opening movement, smoother curtain draw, and a
+   start card/button that visually matches the screen effect.
+   =============================================================== */
+.luxury-cover .silk-curtain-stage{perspective:1400px!important;overflow:hidden!important;}
+.luxury-cover .silk-curtain-panel{width:50.45%!important;box-shadow:inset 0 0 34px rgba(60,32,70,.14),0 18px 36px rgba(26,12,32,.08)!important;}
+.luxury-cover .silk-curtain-panel::before{opacity:.22!important;mix-blend-mode:soft-light;}
+.luxury-cover .silk-curtain-left{transform-origin:0% 50%!important;}
+.luxury-cover .silk-curtain-right{transform-origin:100% 50%!important;}
+@keyframes weddingSilkSmoothDraw{
+  0%{transform:translate3d(0,0,0) scaleX(1);}
+  14%{transform:translate3d(-.6%,0,0) scaleX(.985);}
+  42%{transform:translate3d(-2.3%,0,0) scaleX(.74);}
+  70%{transform:translate3d(-5.2%,0,0) scaleX(.38);}
+  100%{transform:translate3d(-8.4%,0,0) scaleX(.14);}
+}
+@keyframes weddingSilkSmoothDrawRight{
+  0%{transform:translate3d(0,0,0) scaleX(1);}
+  14%{transform:translate3d(.6%,0,0) scaleX(.985);}
+  42%{transform:translate3d(2.3%,0,0) scaleX(.74);}
+  70%{transform:translate3d(5.2%,0,0) scaleX(.38);}
+  100%{transform:translate3d(8.4%,0,0) scaleX(.14);}
+}
+.luxury-cover.curtain-opening .silk-curtain-left{animation:weddingSilkSmoothDraw 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+.luxury-cover.curtain-opening .silk-curtain-right{animation:weddingSilkSmoothDrawRight 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+
+.luxury-cover .silk-curtain-valance{
+  height:min(31vh,238px)!important;
+  background:none!important;
+  z-index:11!important;
+  overflow:visible!important;
+  transform-origin:50% 0%!important;
+  will-change:transform,opacity!important;
+}
+.luxury-cover .silk-curtain-valance::before{
+  content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:min(1180px,100%);height:100%;
+  background:url("assets/silk-stage-valance.svg") center top / 100% 100% no-repeat;
+  filter:drop-shadow(0 8px 18px rgba(35,18,40,.12));
+  pointer-events:none;
+}
+.luxury-cover .silk-curtain-valance span{
+  display:block!important;position:absolute;top:22px;z-index:1;
+  width:min(33vw,365px);height:min(15vh,145px);
+  background:url("assets/silk-curtain-swag.svg") center / 100% 100% no-repeat;
+  opacity:.98;pointer-events:none;filter:drop-shadow(0 10px 16px rgba(34,19,40,.10));
+  transform-origin:50% 0%;
+}
+.luxury-cover .silk-curtain-valance .curtain-valance-left{left:max(-4vw,-24px);}
+.luxury-cover .silk-curtain-valance .curtain-valance-right{right:max(-4vw,-24px);transform:scaleX(-1);}
+@keyframes weddingValanceLift{
+  0%{transform:translateY(0) scaleY(1);opacity:1;}
+  32%{transform:translateY(-5px) scaleY(.985);opacity:1;}
+  100%{transform:translateY(-24px) scaleY(.86);opacity:.9;}
+}
+@keyframes weddingSwagOpenLeft{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(1);opacity:1;}
+  35%{transform:translate3d(-2%,0,0) rotate(-1deg) scale(1);opacity:1;}
+  100%{transform:translate3d(-18%, -12px,0) rotate(-8deg) scale(.86,.82);opacity:.9;}
+}
+@keyframes weddingSwagOpenRight{
+  0%{transform:scaleX(-1) translate3d(0,0,0) rotate(0deg);opacity:1;}
+  35%{transform:scaleX(-1) translate3d(2%,0,0) rotate(1deg);opacity:1;}
+  100%{transform:scaleX(-1) translate3d(18%, -12px,0) rotate(8deg) scale(.86,.82);opacity:.9;}
+}
+.luxury-cover.curtain-opening .silk-curtain-valance{animation:weddingValanceLift 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+.luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-left{animation:weddingSwagOpenLeft 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+.luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-right{animation:weddingSwagOpenRight 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(244,231,203,.16), transparent 43%),
+    radial-gradient(circle at 50% 22%, rgba(195,165,211,.16), transparent 46%),
+    linear-gradient(160deg,#3d2b47 0%,#2e2239 48%,#251b2f 100%)!important;
+  border:1px solid rgba(236,212,175,.34)!important;
+  box-shadow:0 34px 88px rgba(19,10,25,.36), inset 0 0 0 1px rgba(255,255,255,.04)!important;
+  border-radius:28px!important;overflow:hidden!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:108px;
+  background:linear-gradient(180deg, rgba(255,255,255,.055), transparent 78%);
+  pointer-events:none;
+}
+.luxury-cover .stage-welcome-card .box-frame{border-color:rgba(232,205,164,.18)!important;}
+.luxury-cover .stage-welcome-kicker{
+  font-size:8.5px!important;letter-spacing:.28em!important;color:#ecd5ad!important;
+  margin-bottom:18px!important;
+}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line{background:linear-gradient(90deg,transparent,rgba(237,206,156,.62),transparent)!important;}
+.luxury-cover .stage-welcome-card .ganesha-emblem{color:#efd8aa!important;}
+.luxury-cover .stage-welcome-card .ganesha-blessing{color:rgba(237,227,246,.88)!important;}
+.luxury-cover .stage-welcome-card .opening-couple-names{
+  color:#fffafc!important;text-shadow:0 8px 26px rgba(16,9,22,.28)!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names i{color:#e9c78f!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider{color:#e9c78f!important;margin-top:16px!important;margin-bottom:12px!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span{background:linear-gradient(90deg,transparent,rgba(233,199,143,.72))!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span:last-child{background:linear-gradient(90deg,rgba(233,199,143,.72),transparent)!important;}
+.luxury-cover .stage-welcome-card .opening-kannada-line{color:rgba(230,219,239,.92)!important;}
+.luxury-cover .stage-welcome-card .welcome-message-premium{color:rgba(251,246,252,.78)!important;max-width:430px!important;}
+
+.luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:6px!important;}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+  width:min(274px,88%)!important;height:62px!important;min-height:62px!important;
+  gap:14px!important;padding:8px 26px!important;border-radius:18px!important;
+  border:1px solid rgba(240,211,164,.86)!important;
+  background:linear-gradient(135deg,#fbf4ec 0%,#efe3ef 50%,#fbf0e5 100%)!important;
+  box-shadow:0 16px 34px rgba(20,10,26,.28), inset 0 1px 0 rgba(255,255,255,.86), inset 0 -1px 0 rgba(190,153,103,.18)!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{
+  content:""!important;display:block!important;position:absolute;top:50%;width:34px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(177,128,73,.72),rgba(177,128,73,.18));
+  transform:translateY(-50%);opacity:.8;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before{left:18px;}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{right:18px;transform:translateY(-50%) scaleX(-1);}
+.luxury-cover .stage-entry-minimal .stage-enter-label{font-size:clamp(23px,2.35vw,28px)!important;color:#4b3157!important;letter-spacing:.02em!important;}
+.luxury-cover .stage-entry-minimal .stage-enter-ornament{font-size:10px!important;color:#b7874b!important;opacity:.95!important;}
+@media(hover:hover){
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover{
+    transform:translate3d(0,-3px,0)!important;
+    box-shadow:0 20px 38px rgba(20,10,26,.32), inset 0 1px 0 rgba(255,255,255,.9),0 0 0 2px rgba(233,199,142,.22)!important;
+  }
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:active{transform:translate3d(0,0,0)!important;box-shadow:0 11px 24px rgba(20,10,26,.22), inset 0 1px 0 rgba(255,255,255,.8)!important;}
+@media(max-width:768px){
+  .luxury-cover .silk-curtain-valance{height:min(26vh,196px)!important;}
+  .luxury-cover .silk-curtain-valance span{top:20px;width:min(39vw,250px);height:min(12vh,102px);}
+  .luxury-cover .stage-welcome-kicker{margin-bottom:15px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{width:min(242px,84%)!important;height:56px!important;min-height:56px!important;padding:7px 22px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{width:26px;}
+}
+@media(max-width:430px){
+  .luxury-cover .silk-curtain-valance{height:min(24vh,166px)!important;}
+  .luxury-cover .silk-curtain-valance span{top:18px;width:min(42vw,192px);height:min(10vh,84px);}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{width:min(224px,82%)!important;height:53px!important;min-height:53px!important;}
+  .luxury-cover .stage-entry-minimal .stage-enter-label{font-size:22px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left{animation-duration:.95s!important;}
+  .luxury-cover.curtain-opening .silk-curtain-right{animation-duration:.95s!important;}
+  .luxury-cover.curtain-opening .silk-curtain-valance,
+  .luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-left,
+  .luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-right{animation-duration:.95s!important;}
+}

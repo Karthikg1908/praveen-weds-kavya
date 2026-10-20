@@ -332,9 +332,9 @@
     cover.classList.add("opening-active", "curtain-activated");
 
     const curtain = qs(".silk-curtain-left", cover);
-    const introPause = prefersReducedMotion ? 100 : 410;
-    const expectedDraw = prefersReducedMotion ? 850 : 4450;
-    const finalHold = prefersReducedMotion ? 80 : 340;
+    const introPause = prefersReducedMotion ? 90 : 280;
+    const expectedDraw = prefersReducedMotion ? 900 : 4900;
+    const finalHold = prefersReducedMotion ? 100 : 420;
     let openingFinished = false;
 
     const onCurtainsOpened = () => {
@@ -356,7 +356,7 @@
     }, introPause);
     // Let the page emerge only after guests see the curtains moving.
     window.setTimeout(() => cover.classList.add("opening-frame-splitting"),
-      introPause + (prefersReducedMotion ? 80 : 680));
+      introPause + (prefersReducedMotion ? 70 : 760));
     // Reliable fallback for browsers that don't fire animationend.
     window.setTimeout(onCurtainsOpened, introPause + expectedDraw + 350);
   }
