@@ -318,9 +318,9 @@
     }, prefersReducedMotion ? 0 : 520);
   }
 
-  // V42.6.40: single 1.5-second entrance timeline. Do not wait for
-  // animationend: old CSS rules and browser motion settings made callbacks
-  // finish too early or fail, leaving guests on a frozen opening card.
+  // V42.6.42: one uninterrupted curtain reveal. The panels begin
+  // moving on the first render after the tap; finishing is synchronized
+  // with the actual 2.5-second motion, with a safety fallback only.
   function enterWedding() {
     if (isOpening) return;
     isOpening = true;
@@ -330,33 +330,39 @@
       return;
     }
 
-    const TOTAL_MS = 1500;
-    cover.classList.add("opening-active", "curtain-activated");
     openInvitation?.setAttribute("aria-disabled", "true");
     openInvitation?.setAttribute("tabindex", "-1");
 
-    // Make the two silk panels compositor-ready before triggering movement.
     const leftCurtain = qs(".silk-curtain-left", cover);
     const rightCurtain = qs(".silk-curtain-right", cover);
-    [leftCurtain, rightCurtain].forEach(panel => {
-      if (panel) panel.style.willChange = "transform";
-    });
-    requestAnimationFrame(() => {
-      cover.classList.add("curtain-opening", "opening-frame-splitting");
-    });
-
-    // Finish at exactly 1.5 seconds after the tap, regardless of browser
-    // animation callbacks or prefers-reduced-motion settings.
-    window.setTimeout(() => {
-      cover.style.transition = "none";
-      cover.style.opacity = "0";
-      cover.style.visibility = "hidden";
+    let completed = false;
+    let safetyTimer;
+    const done = () => {
+      if (completed) return;
+      completed = true;
+      window.clearTimeout(safetyTimer);
+      leftCurtain?.removeEventListener("animationend", onEnd);
+      rightCurtain?.removeEventListener("animationend", onEnd);
       finishOpening();
-      cover.style.display = "none";
-      [leftCurtain, rightCurtain].forEach(panel => {
-        if (panel) panel.style.willChange = "auto";
-      });
-    }, TOTAL_MS);
+    };
+    const onEnd = event => {
+      if (event.target === leftCurtain && event.animationName === "v42641ContinuousLeft") {
+        done();
+      } else if (event.target === rightCurtain && event.animationName === "v42641ContinuousRight" && !leftCurtain) {
+        done();
+      }
+    };
+
+    // Do not delay activation, pause at the end, or use separate
+    // completion/fade timelines that interrupt the visible movement.
+    leftCurtain?.addEventListener("animationend", onEnd);
+    rightCurtain?.addEventListener("animationend", onEnd);
+    cover.classList.add(
+      "opening-active", "curtain-activated", "curtain-opening", "opening-frame-splitting"
+    );
+
+    // Only used if animation events do not fire (e.g. browser throttling).
+    safetyTimer = window.setTimeout(done, 2900);
   }
 
   if (openInvitation) {

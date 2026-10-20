@@ -11420,3 +11420,53 @@ body.signature-premium{
     animation-duration:1.30s!important;
   }
 }
+
+
+/* ================================================================
+   V42.6.42 — CONTINUOUS 2.5-SECOND CURTAIN REVEAL
+   Both silk panels animate steadily from the tap to the final open
+   position. The invitation dissolves during the same movement;
+   there is no initial wait, midpoint hesitation or finishing hold.
+   ================================================================ */
+@keyframes v42641ContinuousLeft {
+  from { transform:translate3d(0,0,0) scaleX(1); }
+  to   { transform:translate3d(-106%,0,0) scaleX(.90); }
+}
+@keyframes v42641ContinuousRight {
+  from { transform:translate3d(0,0,0) scaleX(1); }
+  to   { transform:translate3d(106%,0,0) scaleX(.90); }
+}
+.luxury-cover.curtain-opening .silk-curtain-left {
+  animation:v42641ContinuousLeft 2.5s cubic-bezier(.28,.12,.22,1) both!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-right {
+  animation:v42641ContinuousRight 2.5s cubic-bezier(.28,.12,.22,1) both!important;
+}
+/* Make the welcome card disappear in concert with the moving curtains,
+   rather than waiting before the curtains begin. */
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox {
+  opacity:0!important;
+  transform:translate3d(0,-10px,0) scale(.99)!important;
+  transition:opacity .32s ease-out,transform .32s ease-out!important;
+  pointer-events:none!important;
+}
+/* Expose the live homepage through the opening from the first frame. */
+.luxury-cover.curtain-activated .opening-home-veil,
+.luxury-cover.curtain-activated .cover-photo,
+.luxury-cover.curtain-activated .cover-vignette,
+.luxury-cover.curtain-activated .cover-noise,
+.luxury-cover.curtain-activated .floating-specks {
+  opacity:0!important;
+  transition:opacity .25s linear!important;
+  pointer-events:none!important;
+}
+.luxury-cover.curtain-activated {
+  background:transparent!important;
+}
+/* Keep a short yet visible simplified reveal for guests who reduce motion. */
+@media (prefers-reduced-motion:reduce) {
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right {
+    animation-duration:2.5s!important;
+  }
+}
