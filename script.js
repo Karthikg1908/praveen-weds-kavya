@@ -332,9 +332,9 @@
     cover.classList.add("opening-active", "curtain-activated");
 
     const curtain = qs(".silk-curtain-left", cover);
-    const introPause = prefersReducedMotion ? 90 : 280;
-    const expectedDraw = prefersReducedMotion ? 900 : 4900;
-    const finalHold = prefersReducedMotion ? 100 : 420;
+    const introPause = prefersReducedMotion ? 80 : 220;
+    const expectedDraw = prefersReducedMotion ? 800 : 3650;
+    const finalHold = prefersReducedMotion ? 90 : 240;
     let openingFinished = false;
 
     const onCurtainsOpened = () => {
@@ -344,7 +344,7 @@
     };
     if (curtain) {
       curtain.addEventListener("animationend", event => {
-        if (event.target === curtain && event.animationName === "weddingSilkSmoothDraw") {
+        if (event.target === curtain && event.animationName === "weddingCurtainGrandDrawLeft") {
           onCurtainsOpened();
         }
       });
@@ -356,7 +356,7 @@
     }, introPause);
     // Let the page emerge only after guests see the curtains moving.
     window.setTimeout(() => cover.classList.add("opening-frame-splitting"),
-      introPause + (prefersReducedMotion ? 70 : 760));
+      introPause + (prefersReducedMotion ? 50 : 490));
     // Reliable fallback for browsers that don't fire animationend.
     window.setTimeout(onCurtainsOpened, introPause + expectedDraw + 350);
   }
