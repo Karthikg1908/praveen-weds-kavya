@@ -11130,7 +11130,7 @@ body.signature-premium{
   top:0!important;bottom:0!important;width:50.2%!important;
   box-shadow:none!important;filter:none!important;contain:paint!important;
   background-position:center top!important;background-size:100% 100%!important;
-  will-change:transform!important;transform:translate3d(0,0,0)!important;
+  will-change:transform!important;transform:translate3d(0,0,0);
   transform-origin:center!important;backface-visibility:hidden!important;
   transition:none!important;animation:none!important;
 }
@@ -11356,5 +11356,67 @@ body.signature-premium{
 @media(max-width:620px){
   .luxury-cover .silk-curtain-left,.luxury-cover .silk-curtain-right{
     background-size:100% clamp(110px,20vh,165px),100% 100%!important;
+  }
+}
+
+
+/* ===============================================================
+   V42.6.40 — REAL 1.5 SECOND CURTAIN OPENING
+   Two compositor-only transforms. Fixed timeline eliminates old
+   animationend/fallback conflicts and the abrupt homepage jump.
+   =============================================================== */
+@keyframes v42640LeftOpen {
+  0% { transform:translate3d(0,0,0) scaleX(1); }
+  15% { transform:translate3d(-4%,0,0) scaleX(.995); }
+  58% { transform:translate3d(-53%,0,0) scaleX(.94); }
+  100% { transform:translate3d(-105%,0,0) scaleX(.90); }
+}
+@keyframes v42640RightOpen {
+  0% { transform:translate3d(0,0,0) scaleX(1); }
+  15% { transform:translate3d(4%,0,0) scaleX(.995); }
+  58% { transform:translate3d(53%,0,0) scaleX(.94); }
+  100% { transform:translate3d(105%,0,0) scaleX(.90); }
+}
+.luxury-cover .silk-curtain-panel {
+  backface-visibility:hidden!important;
+  -webkit-backface-visibility:hidden!important;
+  contain:paint!important;
+  transition:none!important;
+  transform:translate3d(0,0,0) scaleX(1);
+}
+.luxury-cover.curtain-opening .silk-curtain-left {
+  animation:v42640LeftOpen 1.30s cubic-bezier(.42,.05,.2,1) both!important;
+  transform-origin:left center!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-right {
+  animation:v42640RightOpen 1.30s cubic-bezier(.42,.05,.2,1) both!important;
+  transform-origin:right center!important;
+}
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox {
+  opacity:0!important;
+  transition:opacity .14s ease-out!important;
+  pointer-events:none!important;
+}
+.luxury-cover.curtain-activated .opening-home-veil {
+  opacity:0!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:opacity .16s linear!important;
+}
+.luxury-cover.curtain-activated .cover-photo,
+.luxury-cover.curtain-activated .cover-vignette,
+.luxury-cover.curtain-activated .cover-noise,
+.luxury-cover.curtain-activated .floating-specks {
+  opacity:0!important;
+  transition:opacity .16s linear!important;
+  animation-play-state:paused!important;
+  pointer-events:none!important;
+}
+.luxury-cover.curtain-activated { background:transparent!important; }
+/* Respect reduced motion without skipping the 1.5s entrance entirely. */
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right {
+    animation-duration:1.30s!important;
   }
 }

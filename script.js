@@ -318,6 +318,9 @@
     }, prefersReducedMotion ? 0 : 520);
   }
 
+  // V42.6.40: single 1.5-second entrance timeline. Do not wait for
+  // animationend: old CSS rules and browser motion settings made callbacks
+  // finish too early or fail, leaving guests on a frozen opening card.
   function enterWedding() {
     if (isOpening) return;
     isOpening = true;
@@ -327,38 +330,33 @@
       return;
     }
 
-    // V42.6.35: Smooth, GPU-composited silk gathering.  The fabric's
-    // curved silhouette is static; only the two transforms animate.
+    const TOTAL_MS = 1500;
     cover.classList.add("opening-active", "curtain-activated");
+    openInvitation?.setAttribute("aria-disabled", "true");
+    openInvitation?.setAttribute("tabindex", "-1");
 
-    const curtain = qs(".silk-curtain-left", cover);
-    const introPause = prefersReducedMotion ? 80 : 220;
-    const expectedDraw = prefersReducedMotion ? 800 : 3650;
-    const finalHold = prefersReducedMotion ? 90 : 240;
-    let openingFinished = false;
+    // Make the two silk panels compositor-ready before triggering movement.
+    const leftCurtain = qs(".silk-curtain-left", cover);
+    const rightCurtain = qs(".silk-curtain-right", cover);
+    [leftCurtain, rightCurtain].forEach(panel => {
+      if (panel) panel.style.willChange = "transform";
+    });
+    requestAnimationFrame(() => {
+      cover.classList.add("curtain-opening", "opening-frame-splitting");
+    });
 
-    const onCurtainsOpened = () => {
-      if (openingFinished) return;
-      openingFinished = true;
-      window.setTimeout(finishOpening, finalHold);
-    };
-    if (curtain) {
-      curtain.addEventListener("animationend", event => {
-        if (event.target === curtain && event.animationName === "weddingCurtainGrandDrawLeft") {
-          onCurtainsOpened();
-        }
-      });
-    }
+    // Finish at exactly 1.5 seconds after the tap, regardless of browser
+    // animation callbacks or prefers-reduced-motion settings.
     window.setTimeout(() => {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => cover.classList.add("curtain-opening"));
+      cover.style.transition = "none";
+      cover.style.opacity = "0";
+      cover.style.visibility = "hidden";
+      finishOpening();
+      cover.style.display = "none";
+      [leftCurtain, rightCurtain].forEach(panel => {
+        if (panel) panel.style.willChange = "auto";
       });
-    }, introPause);
-    // Let the page emerge only after guests see the curtains moving.
-    window.setTimeout(() => cover.classList.add("opening-frame-splitting"),
-      introPause + (prefersReducedMotion ? 50 : 490));
-    // Reliable fallback for browsers that don't fire animationend.
-    window.setTimeout(onCurtainsOpened, introPause + expectedDraw + 350);
+    }, TOTAL_MS);
   }
 
   if (openInvitation) {
