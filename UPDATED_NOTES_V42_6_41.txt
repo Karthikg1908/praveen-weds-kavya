@@ -1,7 +1,0 @@
-V42.6.41 — Continuous Smooth Curtain Reveal
-
-- 1.5-second uninterrupted curtain animation after Tap to Enter
-- Removed start delay and separate 0.2-second finishing pause
-- Synced completion to CSS animationend with safety fallback
-- Card and homepage reveal happen during curtain movement
-- Preserved V42.6.40 styling and all website sections/features
