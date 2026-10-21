@@ -820,7 +820,7 @@
 
   if (shareInvitationButton) {
     shareInvitationButton.addEventListener("click", async () => {
-      const shareUrl = `${window.location.origin}${window.location.pathname}`;
+      const shareUrl = "https://karthikg1908.github.io/praveen-weds-kavya/?v=4248";
       const shareData = {
         title: "Praveen & Kavya | Wedding Invitation",
         text: "Join us as we celebrate the wedding of Praveen & Kavya on 02 December 2026.",
