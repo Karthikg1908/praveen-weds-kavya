@@ -1,0 +1,6 @@
+V42.6.45 – Royal Floral Refinement
+- Refined Ganesha emblem linework and spacing
+- Added delicate floral arch corner details
+- Improved mobile spacing for arch, text, message, and button
+- Kept small ivory Tap to Enter button with subtle gold hover highlight
+- Preserved 2.5s continuous curtain animation and all other site features

@@ -1,0 +1,7 @@
+V42.6.42 — Continuous 2.5-second premium curtain opening
+
+Based on V42.6.41.
+- Lengthened the left and right silk-curtain animations from 1.5 to 2.5 seconds.
+- Preserved the same continuous easing/motion without a start or finish pause.
+- Matched reduced-motion animation duration and the completion fallback timing.
+- All other website content, visuals, and features are unchanged.

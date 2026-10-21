@@ -1,0 +1,11 @@
+V42.6.40 – Visible Smooth Curtain Opening (1.5 seconds)
+
+- Fixed the curtains appearing to pause then jump to the homepage.
+- Opening begins immediately when Tap to Enter is pressed.
+- Visible curtain movement: 1.30 seconds, then a 0.20-second completion period.
+- Whole click-to-home timeline is set to 1.50 seconds.
+- Corrected CSS transform !important rules that blocked curtain animation.
+- Removed dependence on animationend callbacks and conflicting fallbacks.
+- Left/right silk panels and top swags travel outward together.
+- Works with and without reduced-motion preference.
+- All other website layout, features, assets and sections are preserved.

@@ -1,0 +1,7 @@
+V42.6.39 – Smooth Premium Stage Curtains
+- Replaced laggy multi-layer top/side motion with two compositor-friendly curtain panels
+- Upper silk drapes are integrated into the two moving panels: top and sides open together
+- Redesigned scalloped ivory-lavender canopy (no sharp peaks)
+- Refined plum and champagne wedding welcome screen and Tap to Enter control
+- Curtain reveal timing optimized to 3.65 seconds
+- All other wedding website content, sections, features and scripts preserved
