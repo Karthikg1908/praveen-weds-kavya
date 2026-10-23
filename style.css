@@ -1212,8 +1212,7 @@ body{background:
 .royal-date-timeline,
 .vertical-date-list{position: relative;
   z-index: 1;}
-@keyframes revealButtonShimmer{0%, 60%, 100% { transform: translateX(-120%); }
-  22% { transform: translateX(140%); }}
+
 @keyframes celebrationBurst{0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.35) rotate(0deg);
@@ -1246,17 +1245,7 @@ body{background:
 .royal-date-reveal::after{inset: 12px;
     border-radius: 16px;}}
 .royal-date-reveal{position: relative;}
-@keyframes celebrationRing{0% {
-    opacity: .95;
-    transform: translate(-50%, -50%) scale(.2);
-  }
-  75% {
-    opacity: .38;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(8.5);
-  }}
+
 @keyframes celebrationBurst{0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.15) rotate(0deg);
@@ -1274,12 +1263,8 @@ body{background:
       scale(.92)
       rotate(var(--rot, 180deg));
   }}
-@keyframes kannadaBlessingIn{to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }}
-@keyframes blessingOrnamentPulse{0%, 100% { transform: scale(.85) rotate(0deg); opacity: .48; }
-  50% { transform: scale(1.15) rotate(90deg); opacity: 1; }}
+
+
 .petal-layer{position: fixed;
   inset: 0;
   z-index: 2250;
@@ -1325,11 +1310,8 @@ body{background:
       rotate(var(--spin, 420deg))
       scale(var(--scale,1));
   }}
-@keyframes journeyLineDraw{to { transform: scaleX(1); }}
-@keyframes journeyStepIn{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
+
+
 .gallery .lightbox-item{position: relative;
   cursor: zoom-in;
   outline: none;}
@@ -1527,24 +1509,9 @@ body.lightbox-open{overflow: hidden;}
   font-size: 10px;
   text-shadow: 0 0 12px rgba(201,162,94,.38);
   transition: top .14s linear;}
-@keyframes thankyouTextIn{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
-@keyframes thankyouMonogramIn{to {
-    opacity: 1;
-    transform: scale(1);
-  }}
-@keyframes thankyouPulse{0%, 100% {
-    box-shadow:
-      0 0 0 12px rgba(201,162,94,.025),
-      0 0 42px rgba(201,162,94,.07);
-  }
-  50% {
-    box-shadow:
-      0 0 0 16px rgba(201,162,94,.035),
-      0 0 58px rgba(201,162,94,.13);
-  }}
+
+
+
 @media (max-width: 720px){.venue-actions{align-items: stretch;}
 .direction-btn{width: 100%;}
 .venue-actions .map-action{width: 100%;
@@ -1555,36 +1522,10 @@ body.lightbox-open{overflow: hidden;}
     height: 140px;}
 .scroll-progress-ornament.visible{opacity: .55;}}
 @media (max-width: 480px){.scroll-progress-ornament{right: 3px;}}
-@keyframes thankyouKickerIn{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
-@keyframes thankyouTextInFixed{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
-@keyframes thankyouMonogramInFixed{0% {
-    opacity: 0;
-    transform: scale(.82) rotate(-5deg);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.06) rotate(1deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }}
-@keyframes thankyouPulseFixed{0%, 100% {
-    box-shadow:
-      0 0 0 12px rgba(201,162,94,.025),
-      0 0 42px rgba(201,162,94,.08);
-  }
-  50% {
-    box-shadow:
-      0 0 0 18px rgba(201,162,94,.035),
-      0 0 65px rgba(201,162,94,.17);
-  }}
+
+
+
+
 .reveal.visible,
 .reveal.active{opacity: 1 !important;
   transform: translateY(0) !important;}
@@ -2907,16 +2848,7 @@ footer{position: relative;}
 .luxury-cover.opening-exit::after{opacity: 0;}
 @media (prefers-reduced-motion: reduce){.luxury-cover.opening-exit .cinematic-curtain-left{transform: translateX(-100%) !important;}
 .luxury-cover.opening-exit .cinematic-curtain-right{transform: translateX(100%) !important;}}
-@keyframes heroMonogramArrival{0%{
-    opacity:0;
-    transform:translate(-50%,-48%) scale(.90);
-    filter:blur(9px);
-  }
-  100%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1);
-    filter:blur(0);
-  }}
+
 .hero-content{position:relative;
   z-index:4!important;}
 .premium-texture-section{position:relative;
@@ -10746,7 +10678,7 @@ body.signature-premium{
 .luxury-cover .stage-welcome-kicker{
   display:flex;align-items:center;justify-content:center;
   width:min(410px,90%);gap:12px;margin:0 auto clamp(12px,2.3vh,22px);
-  font-family:'DM Sans',sans-serif;font-size:9px;font-weight:500;
+  font-family:"DM Sans",sans-serif;font-size:9px;font-weight:500;
   letter-spacing:.23em;line-height:1.5;color:#ead7b5;
   white-space:nowrap;text-transform:uppercase;
 }
@@ -10811,11 +10743,11 @@ body.signature-premium{
   flex:1;min-width:0;gap:3px;
 }
 .luxury-cover .stage-entry-actions .stage-unveil-type strong{
-  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:600;
+  font-family:"DM Sans",sans-serif;font-size:11px;font-weight:600;
   letter-spacing:.15em;white-space:nowrap;color:#3b2946;
 }
 .luxury-cover .stage-entry-actions .stage-unveil-type small{
-  font-family:'Cormorant Garamond',serif;font-size:15px;
+  font-family:"Cormorant Garamond",serif;font-size:15px;
   font-weight:600;letter-spacing:.02em;color:#705777;line-height:1;
 }
 .luxury-cover .stage-entry-actions .stage-unveil-arrow{
@@ -10826,7 +10758,7 @@ body.signature-premium{
 .luxury-cover .stage-entry-actions .stage-enter-hint{
   position:relative!important;margin:14px 0 0!important;
   color:rgba(248,239,250,.7)!important;
-  font-family:'DM Sans',sans-serif;font-size:9px!important;
+  font-family:"DM Sans",sans-serif;font-size:9px!important;
   letter-spacing:.09em!important;line-height:1.45!important;
   text-transform:none!important;text-align:center;
 }
@@ -10915,7 +10847,7 @@ body.signature-premium{
 }
 .luxury-cover .stage-entry-minimal .stage-enter-label {
   color:#493352;
-  font-family:'Cormorant Garamond',Georgia,serif;
+  font-family:"Cormorant Garamond",Georgia,serif;
   font-weight:600;
   font-size:clamp(22px,2.2vw,26px);
   letter-spacing:.015em;
@@ -11181,11 +11113,11 @@ body.signature-premium{
 }
 .luxury-cover .silk-curtain-valance .curtain-valance-left{
   left:0!important;right:auto!important;
-  background-image:url('assets/theatre-top-left.svg')!important;
+  background-image:url("assets/theatre-top-left.svg")!important;
 }
 .luxury-cover .silk-curtain-valance .curtain-valance-right{
   right:0!important;left:auto!important;
-  background-image:url('assets/theatre-top-right.svg')!important;
+  background-image:url("assets/theatre-top-right.svg")!important;
 }
 .luxury-cover.curtain-opening .silk-curtain-valance{
   animation:none!important;transform:none!important;
@@ -11252,7 +11184,7 @@ body.signature-premium{
   margin:0 0 8px!important;letter-spacing:.01em!important;
 }
 .luxury-cover .stage-welcome-card .opening-couple-names{
-  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(41px,5.2vw,62px)!important;
   color:#fff8f7!important;line-height:1.06!important;
   gap:14px!important;letter-spacing:-.02em!important;
@@ -11287,7 +11219,7 @@ body.signature-premium{
   content:none!important;display:none!important;
 }
 .luxury-cover .stage-entry-minimal .stage-enter-label{
-  color:#4b3456!important;font-family:'Cormorant Garamond',Georgia,serif!important;
+  color:#4b3456!important;font-family:"Cormorant Garamond",Georgia,serif!important;
   font-size:25px!important;letter-spacing:0!important;font-weight:600!important;
 }
 .luxury-cover .stage-entry-minimal .stage-enter-ornament{color:#b48956!important;font-size:9px!important;}
@@ -11341,13 +11273,13 @@ body.signature-premium{
    baked into each moving curtain's background. Only TWO animated
    layers remain, ensuring that upper and side curtains open together. */
 .luxury-cover .silk-curtain-left{
-  background-image:url('assets/theatre-top-left.svg'),url('assets/silk-curtain-left.webp')!important;
+  background-image:url("assets/theatre-top-left.svg"),url("assets/silk-curtain-left.webp")!important;
   background-size:100% clamp(116px,24vh,218px),100% 100%!important;
   background-repeat:no-repeat,no-repeat!important;
   background-position:center top,center top!important;
 }
 .luxury-cover .silk-curtain-right{
-  background-image:url('assets/theatre-top-right.svg'),url('assets/silk-curtain-right.webp')!important;
+  background-image:url("assets/theatre-top-right.svg"),url("assets/silk-curtain-right.webp")!important;
   background-size:100% clamp(116px,24vh,218px),100% 100%!important;
   background-repeat:no-repeat,no-repeat!important;
   background-position:center top,center top!important;
@@ -11470,7 +11402,7 @@ body.signature-premium{
     animation-duration:2.5s!important;
   }
 }
-\n\n/* ==============================================================
+nn/* ==============================================================
    V42.6.43 — ROYAL ARCHED WELCOME / INTRO ONLY
    The original 2.5-second silk curtain opening is untouched.
    Replaces the square entrance plaque with a refined arched portal.
@@ -11568,7 +11500,7 @@ body.signature-premium{
 }
 .luxury-cover .royal-arched-welcome .opening-couple-names {
   margin:0 auto 0!important;
-  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
   font-size:clamp(48px,5.4vw,67px)!important;
   font-weight:600!important;
   line-height:1.06!important;
@@ -11592,7 +11524,7 @@ body.signature-premium{
   max-width:365px!important;
   margin:0 auto!important;
   color:rgba(251,245,252,.78)!important;
-  font-family:'DM Sans',sans-serif!important;
+  font-family:"DM Sans",sans-serif!important;
   font-size:clamp(11px,1.25vw,13px)!important;
   line-height:1.75!important;
   letter-spacing:.005em!important;
@@ -11618,7 +11550,7 @@ body.signature-premium{
 .luxury-cover .royal-arched-welcome .stage-enter-label {
   color:#513957!important;
   font-size:25px!important;
-  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
   font-weight:600!important;
   letter-spacing:.01em!important;
 }
@@ -11725,7 +11657,7 @@ body.signature-premium{
   content:none!important;
 }
 .luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-enter-label {
-  font-family:'DM Sans',sans-serif!important;
+  font-family:"DM Sans",sans-serif!important;
   font-size:10.5px!important;
   font-weight:600!important;
   line-height:1!important;
@@ -11908,7 +11840,7 @@ body.signature-premium{
 }
 /* Couple names remain the visual focus. */
 .luxury-cover .royal-arched-welcome .opening-couple-names {
-  font-family:'Cormorant Garamond',Georgia,serif!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
   font-weight:600!important;
   font-size:clamp(45px,5.5vw,66px)!important;
   letter-spacing:-.018em!important;

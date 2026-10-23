@@ -1,135 +1,91 @@
 # 💜 Praveen & Kavya — Wedding Invitation
 
-<p align="center">
-  <img src="assets/praveen-kavya-wedding-preview-final.jpg" alt="Praveen & Kavya Wedding Invitation" width="900">
-</p>
+[![Visit Wedding Invitation](https://img.shields.io/badge/View-Live%20Invitation-7A5A94?style=for-the-badge)](https://karthikg1908.github.io/praveen-weds-kavya/)
+[![Hosted on GitHub Pages](https://img.shields.io/badge/Hosted%20on-GitHub%20Pages-36304B?style=for-the-badge&logo=github)](https://github.com/karthikg1908/praveen-weds-kavya)
+[![HTML CSS JavaScript](https://img.shields.io/badge/Built%20with-HTML%20%7C%20CSS%20%7C%20JS-C9A878?style=for-the-badge)](#technical-details)
 
-<p align="center">
-  <strong>✨ A Brother’s Special Gift for His Sister ✨</strong>
-</p>
+**ಶ್ರೀ ಗಣೇಶನ ಅನುಗ್ರಹದೊಂದಿಗೆ**  
+**Praveen & Kavya**  
+*ಎರಡು ಹೃದಯಗಳ ಶುಭ ಸಂಗಮ*
 
-<p align="center">
-  <em>Some gifts are bought. Some gifts are made with love.<br>This one was built with code and heart. 💜</em>
-</p>
+Welcome to a celebration of love, togetherness, and a beautiful new beginning.
 
-<p align="center">
-  <a href="https://karthikg1908.github.io/praveen-weds-kavya/">
-    <img src="https://img.shields.io/badge/View_Wedding_Invitation-6D4C8B?style=for-the-badge&logo=githubpages&logoColor=white" alt="View Wedding Invitation">
-  </a>
-</p>
+[**View the wedding invitation →**](https://karthikg1908.github.io/praveen-weds-kavya/)
 
----
+![Praveen and Kavya wedding invitation preview](assets/praveen-kavya-wedding-preview-v2.jpg)
 
-## 💍 About This Project
+## Wedding celebrations
 
-This is a **digital wedding invitation for Praveen & Kavya**, thoughtfully designed and developed as a special gift from a brother to his sister for one of the most memorable days of her life.
+| Occasion | Date | Time |
+| --- | --- | --- |
+| **Reception** | Tuesday, 1 December 2026 | 6:30 PM onwards |
+| **Muhurtham** | Wednesday, 2 December 2026 | 9:30 AM |
+| **Beegara Oota** | Sunday, 13 December 2026 | 12:30 PM onwards |
 
-The website brings together elegant wedding design, Kannada and English content, smooth cinematic interactions, family memories, event details, venue directions, music and a premium mobile experience.
+**Wedding venue:** Purvaja Samudhaya Bhavana, Magadi–Kunigal Road, Aladakattepalya, Karnataka.  
+[Get directions to the wedding venue](https://www.google.com/maps/search/?api=1&query=Purvaja+Samudhaya+Bhavana+Aladakattepalya)
 
-> **A small effort from a brother for one of the biggest days in his sister’s life. 💜**
+**Beegara Oota venue:** HB Function Hall, Magadi Main Road, Kamakshipalya, Bengaluru.  
+[Get directions to Beegara Oota](https://www.google.com/maps/search/?api=1&query=HB+Function+Hall+Magadi+Main+Road+Kamakshipalya)
 
----
+## Invitation highlights
 
-## 🌸 Wedding Details
+- Cinematic floral welcome card with Ganesha blessing in Kannada
+- Smooth **2.5-second continuous** ivory-lavender curtain reveal
+- Premium lavender, plum, ivory, and champagne-gold design
+- Embedded wedding video and background music with playback controls
+- Couple introduction, event dates, and live muhurtham countdown
+- Photo gallery with full-screen lightbox navigation
+- Wedding and Beegara Oota locations with Google Maps directions
+- One-tap invitation sharing, including a WhatsApp-friendly preview
+- Wedding-day quick actions and responsive mobile layout
 
-| Celebration | Date & Time |
-|---|---|
-| 💐 **Reception** | **01 December 2026** |
-| 💍 **Muhurtham** | **02 December 2026 — 9:30 AM** |
-| 🍽️ **Beegara Oota** | **13 December 2026 — 12:30 PM onwards** |
+## Technical details
 
----
+This is a **static website** written in **HTML, CSS, and JavaScript**. No Node.js, build pipeline, database, login, or paid hosting is required.
 
-## ✨ Website Highlights
+```text
+praveen-weds-kavya/
+├── index.html                         # Pages and social preview metadata
+├── style.css                          # Layout, colors and animations
+├── script.js                          # Interactions and countdown
+├── background-music.mp3               # Background music
+├── wedding-invite.mp4                 # Wedding invitation video
+├── assets/                            # Icons, photos, curtains and social preview
+└── README.md                          # This guide
+```
 
-- 💜 Premium lavender, plum, ivory and champagne-gold theme
-- 🎞️ Smooth cinematic **50/50 invitation opening**
-- 💌 Elegant **P & K wedding seal**
-- 🌺 Kannada + English wedding content
-- 🎥 Wedding video invitation
-- 👫 Meet the Couple section
-- 📅 Save the Date timeline
-- ⏳ Live wedding countdown
-- 💖 Smart wedding-day message
-- 🖼️ Our Moments gallery with full-screen lightbox and swipe support
-- 📍 Wedding and Beegara Oota venue details
-- 🗺️ One-tap Google Maps directions
-- 🎵 Background wedding music
-- 📲 WhatsApp/social sharing preview
-- 💜 Custom `P ♥ K` favicon
-- 📱 Fully responsive mobile design
-- ✨ Smooth reveal animations and decorative scroll progress
-- ♿ Accessibility improvements
-- ⚡ Gallery preloading and performance optimizations
+The site uses Google Fonts and some remotely hosted Unsplash imagery. An internet connection is needed for those remote assets; local fallback imagery is included. To replace the sample photographs, update the image URLs in `index.html` and relevant CSS while retaining the gallery structure.
 
----
+## Publish with GitHub Pages
 
-## 🎨 Design Theme
+1. Upload all files and the `assets` folder to the **root** of the `praveen-weds-kavya` repository (not inside an extra extracted folder).
+2. In GitHub, open **Settings → Pages**.
+3. Select **Deploy from a branch**, branch **`main`**, folder **`/ (root)`**, then save.
+4. Open the [live invitation](https://karthikg1908.github.io/praveen-weds-kavya/) after deployment.
 
-The website follows a soft, elegant wedding palette:
+For local preview, open `index.html` in a browser. If browser security restrictions affect local media or links, run a simple local server:
 
-- 💜 **Lavender**
-- 🍇 **Deep Plum**
-- 🤍 **Ivory**
-- ✨ **Champagne Gold**
+```bash
+python -m http.server 8000
+```
 
-The visual style is intentionally romantic and premium, while keeping animations smooth and the content easy to read on mobile devices.
+Then visit `http://localhost:8000/`.
 
----
+## WhatsApp sharing preview
 
-## 🛠️ Built With
+The page uses Open Graph (`og:title`, `og:description`, `og:image`, `og:url`) metadata and a **1200 × 630** social preview image at:
 
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/GitHub_Pages-222222?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages">
-</p>
+`assets/praveen-kavya-wedding-preview-v2.jpg`
 
----
+The metadata points to the GitHub Pages URL for this repository. When sharing, use the **public GitHub Pages link** rather than a file URL or a repository download link. WhatsApp may cache older previews; after deploying changes, allow the preview cache to refresh before retesting. Keep the image published at the path used by `og:image`.
 
-## 🌐 Live Wedding Invitation
+## Important notes
 
-### 💜 Praveen ♥ Kavya
-
-**02 December 2026**
-
-👉 **[Open the Wedding Invitation](https://karthikg1908.github.io/praveen-weds-kavya/)**
-
-For the best experience, open the invitation on a phone, keep the sound on, tap the wedding seal and enjoy the complete celebration from beginning to end.
+- Please keep `index.html`, `style.css`, `script.js`, `background-music.mp3`, `wedding-invite.mp4`, and the referenced assets together.
+- The curtain animation and interactive sections depend on the existing HTML class names, CSS, and JavaScript; avoid renaming them without updating references.
+- This cleanup release retains the appearance and behavior of **V42.6.48** while removing obsolete revision notes and unreferenced assets.
 
 ---
 
-## 💌 A Note From the Brother
-
-> This project was not created for an assignment.  
-> It was not created just for a portfolio.  
->  
-> It was created for family.  
->  
-> **For my sister.**  
->  
-> For a once-in-a-lifetime celebration. 💜
-
----
-
-## 👨‍💻 Designed & Developed By
-
-<p align="center">
-  <strong>Karthik G</strong><br>
-  Brother • Developer • Designer
-</p>
-
-<p align="center">
-  <strong>✦ Thoughtfully crafted for my sister’s special day ✦</strong><br><br>
-  <code>Made with Love • Memories • Code</code>
-</p>
-
----
-
-<p align="center">
-  <strong>💜 Praveen ♥ Kavya 💜</strong><br>
-  <strong>02 December 2026</strong><br><br>
-  शुभ विवाह • ಶುಭ ವಿವಾಹ<br><br>
-  <em>A beautiful beginning to forever.</em>
-</p>
+**✦ Thoughtfully crafted by Karthi ✦**
