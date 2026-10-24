@@ -50,7 +50,7 @@ select{font: inherit;}
 .cover-photo{position: absolute;
   inset: -3%;
   background:
-    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG")
+    url("assets/hero-photo.JPG")
     center 44% / cover no-repeat;
   filter: saturate(.72) contrast(1.04);
   transform: scale(1.03);
