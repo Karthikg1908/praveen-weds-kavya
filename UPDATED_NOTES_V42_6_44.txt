@@ -1,0 +1,2 @@
+V42.6.44 — Petite Ivory Tap to Enter
+Changed only the opening CTA styling and markup: slimmer, lighter ivory-lavender button, delicate gold line and arrow, smaller typography. Royal arch, 2.5-second curtain animation, and all remaining website features are unchanged.
