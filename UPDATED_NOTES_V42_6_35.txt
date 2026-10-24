@@ -1,3 +1,0 @@
-V42.6.35 — Premium Smooth Curtain Opening
-
-Keeps all site content and V42.6.34 features intact. Replaces only the entrance curtain motion with smooth, curved and pre-shaded silk layers. The curtains gather gradually using compositor-friendly transform animation over 4.45 seconds, with gentle easing and a fixed top valance. No animated clip-path, moving spotlights, or expensive blur effects.
