@@ -219,7 +219,7 @@ select{font: inherit;}
 .hero-photo{position: absolute;
   inset: 0;
   background:
-    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG")
+    url("assets/hero-photo.JPG")
     center 45% / cover no-repeat;}
 .hero-overlay{position: absolute;
   inset: 0;
@@ -5157,11 +5157,11 @@ html body #backToTop{top:auto!important;
     width:100%;
     background:rgba(217,205,237,.42);}}
 .cover-photo{background:
-    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG") center 44% / cover no-repeat,
+    url("assets/hero-photo.JPG") center 44% / cover no-repeat,
     url("assets/image-fallback.webp") center / cover no-repeat,
     #2B1E35!important;}
 .hero-photo{background:
-    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG") center 45% / cover no-repeat,
+    url("assets/hero-photo.JPG") center 45% / cover no-repeat,
     url("assets/image-fallback.webp") center / cover no-repeat,
     #2B1E35!important;}
 .has-image-error{background:linear-gradient(145deg,#F1ECF7,#D9CDED)!important;}
@@ -5784,7 +5784,7 @@ img.image-load-error{
   position: absolute;
   inset: -3%;
   background:
-    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG")
+    url("assets/hero-photo.JPG")
     center 44% / cover no-repeat;
   filter: saturate(.72) contrast(1.04);
   transform: scale(1.03);
