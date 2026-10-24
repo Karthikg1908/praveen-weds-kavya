@@ -318,6 +318,9 @@
     }, prefersReducedMotion ? 0 : 520);
   }
 
+  // V42.6.42: one uninterrupted curtain reveal. The panels begin
+  // moving on the first render after the tap; finishing is synchronized
+  // with the actual 2.5-second motion, with a safety fallback only.
   function enterWedding() {
     if (isOpening) return;
     isOpening = true;
@@ -327,33 +330,39 @@
       return;
     }
 
-    // Phase 1: freeze non-essential decorative motion and swap the single
-    // invitation card for two perfectly aligned 50% halves.
-    cover.classList.add("opening-active");
-    openingFrameShell.classList.add("split-ready");
+    openInvitation?.setAttribute("aria-disabled", "true");
+    openInvitation?.setAttribute("tabindex", "-1");
 
-    // Phase 2: give the browser two paint frames to promote both halves to
-    // compositor layers before movement starts. This avoids the first-frame
-    // hitch that was visible on mobile devices.
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        openingFrameShell.classList.add("is-splitting");
-      });
-    });
+    const leftCurtain = qs(".silk-curtain-left", cover);
+    const rightCurtain = qs(".silk-curtain-right", cover);
+    let completed = false;
+    let safetyTimer;
+    const done = () => {
+      if (completed) return;
+      completed = true;
+      window.clearTimeout(safetyTimer);
+      leftCurtain?.removeEventListener("animationend", onEnd);
+      rightCurtain?.removeEventListener("animationend", onEnd);
+      finishOpening();
+    };
+    const onEnd = event => {
+      if (event.target === leftCurtain && event.animationName === "v42641ContinuousLeft") {
+        done();
+      } else if (event.target === rightCurtain && event.animationName === "v42641ContinuousRight" && !leftCurtain) {
+        done();
+      }
+    };
 
-    // Phase 3: begin revealing the homepage while the doors are already in
-    // motion. The reveal now uses opacity only (no animated backdrop blur).
-    window.setTimeout(() => {
-      cover.classList.add("opening-frame-splitting");
-    }, 360);
+    // Do not delay activation, pause at the end, or use separate
+    // completion/fade timelines that interrupt the visible movement.
+    leftCurtain?.addEventListener("animationend", onEnd);
+    rightCurtain?.addEventListener("animationend", onEnd);
+    cover.classList.add(
+      "opening-active", "curtain-activated", "curtain-opening", "opening-frame-splitting"
+    );
 
-    // Phase 4: after the full 50/50 travel completes, hold very briefly and
-    // fade the panels using opacity only.
-    window.setTimeout(() => {
-      openingFrameShell.classList.add("split-fade");
-    }, 1880);
-
-    window.setTimeout(finishOpening, 2340);
+    // Only used if animation events do not fire (e.g. browser throttling).
+    safetyTimer = window.setTimeout(done, 2900);
   }
 
   if (openInvitation) {
@@ -811,7 +820,7 @@
 
   if (shareInvitationButton) {
     shareInvitationButton.addEventListener("click", async () => {
-      const shareUrl = `${window.location.origin}${window.location.pathname}`;
+      const shareUrl = "https://karthikg1908.github.io/praveen-weds-kavya/?v=4248";
       const shareData = {
         title: "Praveen & Kavya | Wedding Invitation",
         text: "Join us as we celebrate the wedding of Praveen & Kavya on 02 December 2026.",

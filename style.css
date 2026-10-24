@@ -50,7 +50,7 @@ select{font: inherit;}
 .cover-photo{position: absolute;
   inset: -3%;
   background:
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
+    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG")
     center 44% / cover no-repeat;
   filter: saturate(.72) contrast(1.04);
   transform: scale(1.03);
@@ -219,7 +219,7 @@ select{font: inherit;}
 .hero-photo{position: absolute;
   inset: 0;
   background:
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
+    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG")
     center 45% / cover no-repeat;}
 .hero-overlay{position: absolute;
   inset: 0;
@@ -1212,8 +1212,7 @@ body{background:
 .royal-date-timeline,
 .vertical-date-list{position: relative;
   z-index: 1;}
-@keyframes revealButtonShimmer{0%, 60%, 100% { transform: translateX(-120%); }
-  22% { transform: translateX(140%); }}
+
 @keyframes celebrationBurst{0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.35) rotate(0deg);
@@ -1246,17 +1245,7 @@ body{background:
 .royal-date-reveal::after{inset: 12px;
     border-radius: 16px;}}
 .royal-date-reveal{position: relative;}
-@keyframes celebrationRing{0% {
-    opacity: .95;
-    transform: translate(-50%, -50%) scale(.2);
-  }
-  75% {
-    opacity: .38;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(8.5);
-  }}
+
 @keyframes celebrationBurst{0% {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.15) rotate(0deg);
@@ -1274,12 +1263,8 @@ body{background:
       scale(.92)
       rotate(var(--rot, 180deg));
   }}
-@keyframes kannadaBlessingIn{to {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }}
-@keyframes blessingOrnamentPulse{0%, 100% { transform: scale(.85) rotate(0deg); opacity: .48; }
-  50% { transform: scale(1.15) rotate(90deg); opacity: 1; }}
+
+
 .petal-layer{position: fixed;
   inset: 0;
   z-index: 2250;
@@ -1325,11 +1310,8 @@ body{background:
       rotate(var(--spin, 420deg))
       scale(var(--scale,1));
   }}
-@keyframes journeyLineDraw{to { transform: scaleX(1); }}
-@keyframes journeyStepIn{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
+
+
 .gallery .lightbox-item{position: relative;
   cursor: zoom-in;
   outline: none;}
@@ -1527,24 +1509,9 @@ body.lightbox-open{overflow: hidden;}
   font-size: 10px;
   text-shadow: 0 0 12px rgba(201,162,94,.38);
   transition: top .14s linear;}
-@keyframes thankyouTextIn{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
-@keyframes thankyouMonogramIn{to {
-    opacity: 1;
-    transform: scale(1);
-  }}
-@keyframes thankyouPulse{0%, 100% {
-    box-shadow:
-      0 0 0 12px rgba(201,162,94,.025),
-      0 0 42px rgba(201,162,94,.07);
-  }
-  50% {
-    box-shadow:
-      0 0 0 16px rgba(201,162,94,.035),
-      0 0 58px rgba(201,162,94,.13);
-  }}
+
+
+
 @media (max-width: 720px){.venue-actions{align-items: stretch;}
 .direction-btn{width: 100%;}
 .venue-actions .map-action{width: 100%;
@@ -1555,36 +1522,10 @@ body.lightbox-open{overflow: hidden;}
     height: 140px;}
 .scroll-progress-ornament.visible{opacity: .55;}}
 @media (max-width: 480px){.scroll-progress-ornament{right: 3px;}}
-@keyframes thankyouKickerIn{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
-@keyframes thankyouTextInFixed{to {
-    opacity: 1;
-    transform: translateY(0);
-  }}
-@keyframes thankyouMonogramInFixed{0% {
-    opacity: 0;
-    transform: scale(.82) rotate(-5deg);
-  }
-  70% {
-    opacity: 1;
-    transform: scale(1.06) rotate(1deg);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1) rotate(0);
-  }}
-@keyframes thankyouPulseFixed{0%, 100% {
-    box-shadow:
-      0 0 0 12px rgba(201,162,94,.025),
-      0 0 42px rgba(201,162,94,.08);
-  }
-  50% {
-    box-shadow:
-      0 0 0 18px rgba(201,162,94,.035),
-      0 0 65px rgba(201,162,94,.17);
-  }}
+
+
+
+
 .reveal.visible,
 .reveal.active{opacity: 1 !important;
   transform: translateY(0) !important;}
@@ -2907,16 +2848,7 @@ footer{position: relative;}
 .luxury-cover.opening-exit::after{opacity: 0;}
 @media (prefers-reduced-motion: reduce){.luxury-cover.opening-exit .cinematic-curtain-left{transform: translateX(-100%) !important;}
 .luxury-cover.opening-exit .cinematic-curtain-right{transform: translateX(100%) !important;}}
-@keyframes heroMonogramArrival{0%{
-    opacity:0;
-    transform:translate(-50%,-48%) scale(.90);
-    filter:blur(9px);
-  }
-  100%{
-    opacity:1;
-    transform:translate(-50%,-50%) scale(1);
-    filter:blur(0);
-  }}
+
 .hero-content{position:relative;
   z-index:4!important;}
 .premium-texture-section{position:relative;
@@ -5225,11 +5157,11 @@ html body #backToTop{top:auto!important;
     width:100%;
     background:rgba(217,205,237,.42);}}
 .cover-photo{background:
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp") center 44% / cover no-repeat,
+    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG") center 44% / cover no-repeat,
     url("assets/image-fallback.webp") center / cover no-repeat,
     #2B1E35!important;}
 .hero-photo{background:
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp") center 45% / cover no-repeat,
+    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG") center 45% / cover no-repeat,
     url("assets/image-fallback.webp") center / cover no-repeat,
     #2B1E35!important;}
 .has-image-error{background:linear-gradient(145deg,#F1ECF7,#D9CDED)!important;}
@@ -5852,7 +5784,7 @@ img.image-load-error{
   position: absolute;
   inset: -3%;
   background:
-    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
+    url("file:///C:/Users/itskarth/Documents/GitHub/praveen-weds-kavya/assets/hero-photo.JPG")
     center 44% / cover no-repeat;
   filter: saturate(.72) contrast(1.04);
   transform: scale(1.03);
@@ -10608,4 +10540,1366 @@ body.signature-premium{
     width:11px!important;
     height:11px!important;
   }
+}
+
+
+
+/* ================================================================
+   V42.6.35 — SMOOTH THEATRE-CURTAIN ENTRANCE
+   The V42.6.34 polygon morph is replaced by a soft, PRE-RASTERIZED
+   curved fabric edge. Only transform and opacity change frame-to-frame.
+   No moving lights, filter animation, complex clip-path, or page redesign.
+   ================================================================ */
+.luxury-cover .silk-curtain-stage {
+  position:absolute;
+  inset:0;
+  z-index:8;
+  overflow:hidden;
+  isolation:isolate;
+  pointer-events:none;
+}
+.luxury-cover .silk-curtain-panel {
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:50.12%;
+  background:transparent none center center / 100% 100% no-repeat;
+  box-shadow:inset 0 0 26px rgba(65,39,73,.10);
+  backface-visibility:hidden;
+  -webkit-backface-visibility:hidden;
+  transform:translate3d(0,0,0) scaleX(1);
+  will-change:transform;
+  contain:paint;
+  animation:none;
+  transition:none;
+}
+.luxury-cover .silk-curtain-left {
+  left:0;
+  transform-origin:0% 50%;
+  background-image:url("assets/silk-curtain-left.webp");
+}
+.luxury-cover .silk-curtain-right {
+  right:0;
+  transform-origin:100% 50%;
+  background-image:url("assets/silk-curtain-right.webp");
+}
+/* Static silk pleats: no painted gradients or masks change during motion. */
+.luxury-cover .silk-curtain-panel::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  opacity:.19;
+  background:repeating-linear-gradient(90deg,
+    rgba(255,255,255,.14) 0%, transparent 8%,
+    rgba(81,46,89,.11) 16%, transparent 24%);
+  pointer-events:none;
+}
+.luxury-cover .silk-curtain-panel::after,
+.luxury-cover .silk-curtain-swag,
+.luxury-cover .silk-curtain-centerline { display:none!important; }
+/* One unmoving valance along the top of the stage. */
+.luxury-cover .silk-curtain-valance {
+  position:absolute;
+  inset:0 0 auto;
+  height:min(24vh,205px);
+  z-index:9;
+  background:url("assets/silk-stage-valance.svg") center top / 100% 100% no-repeat;
+  pointer-events:none;
+  transform:translateZ(0);
+}
+.luxury-cover .silk-curtain-valance span { display:none!important; }
+/* Existing invitation remains above the closed curtains and clickable. */
+.luxury-cover:not(.curtain-activated) .opening-frame-shell{z-index:20!important;}
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox {
+  opacity:0!important;
+  visibility:visible!important;
+  pointer-events:none!important;
+  transition:opacity .36s ease!important;
+}
+.luxury-cover.curtain-activated .opening-frame-shell{pointer-events:none!important;}
+.luxury-cover .opening-split-stage{display:none!important;}
+/* A single smooth easing curve makes the gathering continuous, never jerky. */
+@keyframes weddingSilkSmoothDraw {
+  from { transform:translate3d(0,0,0) scaleX(1); }
+  to   { transform:translate3d(0,0,0) scaleX(.17); }
+}
+.luxury-cover.curtain-opening .silk-curtain-left,
+.luxury-cover.curtain-opening .silk-curtain-right {
+  animation:weddingSilkSmoothDraw 4.45s cubic-bezier(.42,.05,.55,.96) both!important;
+}
+/* Calm reveal: no blurring of the main page or large moving glows. */
+.luxury-cover.curtain-activated .opening-home-veil {
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:opacity 2.35s cubic-bezier(.22,.52,.35,1)!important;
+}
+.luxury-cover.curtain-activated.opening-frame-splitting .opening-home-veil{
+  opacity:0!important;
+}
+.luxury-cover.curtain-activated .floating-specks,
+.luxury-cover.curtain-activated .cover-photo{
+  animation-play-state:paused!important;
+}
+@media(max-width:620px){
+  .luxury-cover .silk-curtain-valance{height:min(17vh,145px);}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right{
+    animation-duration:.85s!important;
+    animation-timing-function:ease-out!important;
+  }
+  .luxury-cover.curtain-activated .opening-home-veil{
+    transition-duration:.62s!important;
+  }
+  .luxury-cover.curtain-activated .opening-frame-shell > #invitationBox{
+    transition-duration:.12s!important;
+  }
+}
+
+
+/* =============================================================
+   V42.6.36 — STAGE WELCOME CARD / CURTAIN UNVEIL CONTROL
+   Entrance screen only. Existing V42.6.35 silk curtain animation,
+   script event binding, and every other site section are preserved.
+   ============================================================= */
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+  background:
+    radial-gradient(ellipse at 50% 10%, rgba(170,141,188,.17), transparent 53%),
+    linear-gradient(155deg, #45334f 0%, #34253e 51%, #291d32 100%)!important;
+  border:1px solid rgba(231,208,174,.38)!important;
+  box-shadow:0 28px 74px rgba(30,18,38,.33),inset 0 0 0 1px rgba(255,255,255,.045)!important;
+  padding-top:clamp(34px,4.5vh,48px)!important;
+  padding-bottom:clamp(24px,3.5vh,36px)!important;
+  gap:0!important;
+}
+.luxury-cover .stage-welcome-card .box-frame{border-color:rgba(225,200,162,.22)!important;}
+.luxury-cover .stage-welcome-card .corner-ornament{opacity:.52;color:#e3cda7!important;}
+.luxury-cover .stage-welcome-kicker{
+  display:flex;align-items:center;justify-content:center;
+  width:min(410px,90%);gap:12px;margin:0 auto clamp(12px,2.3vh,22px);
+  font-family:"DM Sans",sans-serif;font-size:9px;font-weight:500;
+  letter-spacing:.23em;line-height:1.5;color:#ead7b5;
+  white-space:nowrap;text-transform:uppercase;
+}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line{height:1px;flex:1;min-width:10px;background:linear-gradient(90deg,transparent,rgba(226,194,145,.65));}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line:last-child{transform:scaleX(-1)}
+.luxury-cover .stage-welcome-card .ganesha-opening-block{
+  width:min(540px,94%)!important;
+  margin:0 auto clamp(13px,3.1vh,28px)!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-emblem{color:#e8d9b9!important;filter:none!important;}
+.luxury-cover .stage-welcome-card .ganesha-blessing{color:#e5d9ed!important;}
+.luxury-cover .stage-welcome-card .opening-couple-names{
+  color:#fff9ff!important;
+  text-shadow:0 6px 24px rgba(18,9,25,.17)!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names i{color:#e8c899!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider{color:#e6c58e!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span{background:linear-gradient(90deg,transparent,rgba(232,198,148,.64))!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span:last-child{background:linear-gradient(90deg,rgba(232,198,148,.64),transparent)!important;}
+.luxury-cover .stage-welcome-card .opening-kannada-line{color:#e2d5ed!important;}
+.luxury-cover .stage-welcome-card .welcome-message-premium{color:rgba(251,244,253,.81)!important;font-size:clamp(12px,1.5vw,15px)!important;line-height:1.65!important;max-width:420px!important;}
+.luxury-cover .stage-entry-actions{
+  position:relative;z-index:24;display:flex;flex-direction:column;align-items:center;
+  width:100%;margin:0 auto;
+}
+/* Override old round wax-seal visuals without affecting the click event. */
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button{
+  appearance:none!important;
+  position:relative!important;isolation:isolate!important;
+  width:min(320px,94%)!important;min-width:0!important;
+  height:66px!important;min-height:66px!important;
+  margin:0!important;padding:8px 16px 8px 12px!important;
+  display:flex!important;flex-direction:row!important;
+  align-items:center!important;justify-content:space-between!important;gap:12px!important;
+  overflow:hidden!important;border-radius:12px!important;
+  background:linear-gradient(115deg,#f7f0e9 0%,#e9deea 50%,#f9efe0 100%)!important;
+  border:1px solid rgba(241,212,162,.94)!important;
+  color:#34233e!important;text-align:left!important;cursor:pointer!important;
+  animation:none!important;
+  box-shadow:0 9px 23px rgba(17,10,23,.22),inset 0 1px 0 rgba(255,255,255,.8)!important;
+  transform:none!important;
+  transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease!important;
+}
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button::before,
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button::after{
+  content:none!important;display:none!important;animation:none!important;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-symbol{
+  width:43px;height:43px;flex:0 0 43px;
+  display:grid;place-items:center;
+  background:linear-gradient(145deg,#6a5079,#493350);
+  color:#f5dfb7;border-radius:9px;
+  border:1px solid rgba(224,184,126,.5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13);
+}
+.luxury-cover .stage-entry-actions .stage-unveil-symbol svg{
+  width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.55;
+  stroke-linejoin:round;stroke-linecap:round;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-type{
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
+  flex:1;min-width:0;gap:3px;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-type strong{
+  font-family:"DM Sans",sans-serif;font-size:11px;font-weight:600;
+  letter-spacing:.15em;white-space:nowrap;color:#3b2946;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-type small{
+  font-family:"Cormorant Garamond",serif;font-size:15px;
+  font-weight:600;letter-spacing:.02em;color:#705777;line-height:1;
+}
+.luxury-cover .stage-entry-actions .stage-unveil-arrow{
+  display:flex;align-items:center;justify-content:center;flex:0 0 24px;
+  font-size:22px;line-height:1;color:#84648b;
+  transition:transform .25s ease;
+}
+.luxury-cover .stage-entry-actions .stage-enter-hint{
+  position:relative!important;margin:14px 0 0!important;
+  color:rgba(248,239,250,.7)!important;
+  font-family:"DM Sans",sans-serif;font-size:9px!important;
+  letter-spacing:.09em!important;line-height:1.45!important;
+  text-transform:none!important;text-align:center;
+}
+@media(hover:hover){
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:hover{
+    transform:translateY(-2px)!important;
+    box-shadow:0 14px 30px rgba(17,10,23,.3),0 0 0 1px rgba(232,199,146,.3),inset 0 1px 0 #fff!important;
+  }
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:hover .stage-unveil-arrow{transform:translateX(4px);}
+}
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:focus-visible{
+  outline:3px solid #e7cb8c!important;outline-offset:5px!important;
+}
+.luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button:active{transform:scale(.985)!important;}
+@media(max-width:620px){
+  .luxury-cover .stage-welcome-kicker{gap:8px;font-size:7px;letter-spacing:.18em;margin-bottom:17px;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{width:97%!important;margin-bottom:22px!important;}
+  .luxury-cover .stage-welcome-card .welcome-message-premium{font-size:11.7px!important;max-width:300px!important;}
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button{
+    width:min(290px,93%)!important;
+    height:62px!important;min-height:62px!important;
+    padding:7px 12px 7px 8px!important;gap:10px!important;
+  }
+  .luxury-cover .stage-entry-actions .stage-unveil-type strong{font-size:10px;letter-spacing:.14em;}
+  .luxury-cover .stage-entry-actions .stage-unveil-type small{font-size:14px;}
+  .luxury-cover .stage-entry-actions .stage-unveil-symbol{width:43px;height:43px;flex-basis:43px;}
+  .luxury-cover .stage-entry-actions .stage-enter-hint{font-size:9px!important;}
+}
+@media(max-height:700px){
+  .luxury-cover .stage-welcome-kicker{margin-bottom:8px;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{margin-bottom:13px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-emblem{width:52px!important;height:52px!important;margin-bottom:4px!important;}
+  .luxury-cover .stage-welcome-card .opening-name-divider{margin:9px auto 7px!important;}
+  .luxury-cover .stage-entry-actions #openInvitation.stage-unveil-button{height:56px!important;min-height:56px!important;}
+  .luxury-cover .stage-entry-actions .stage-enter-hint{margin-top:8px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover .stage-entry-actions .stage-unveil-arrow{transition:none!important;}
+}
+
+
+/* ===============================================================
+   V42.6.37 — REFINED MINIMAL "TAP TO ENTER" WELCOME
+   Only the opening CTA/card micro-spacing. Curtain animation and
+   the remaining website remain exactly as in V42.6.36.
+   =============================================================== */
+.luxury-cover .stage-entry-actions.stage-entry-minimal {
+  width:100%;
+  margin:clamp(2px,1vh,10px) auto 0!important;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button {
+  box-sizing:border-box!important;
+  appearance:none!important;
+  position:relative!important;
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:20px!important;
+  flex-direction:row!important;
+  width:min(252px,87%)!important;
+  height:58px!important;
+  min-height:58px!important;
+  min-width:0!important;
+  padding:8px 21px!important;
+  margin:0!important;
+  border-radius:999px!important;
+  border:1px solid rgba(242,212,166,.85)!important;
+  color:#493352!important;
+  background:linear-gradient(110deg,#f8f0e9 0%,#f0e5f0 52%,#faf1e7 100%)!important;
+  box-shadow:0 12px 26px rgba(17,9,24,.26),inset 0 0 0 2px rgba(255,255,255,.55),0 0 0 1px rgba(226,190,143,.13)!important;
+  cursor:pointer!important;
+  isolation:isolate!important;
+  text-align:center!important;
+  overflow:hidden!important;
+  animation:none!important;
+  transform:translate3d(0,0,0)!important;
+  transition:transform .28s cubic-bezier(.2,.7,.24,1),box-shadow .28s ease!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after {
+  display:none!important;
+  content:none!important;
+}
+.luxury-cover .stage-entry-minimal .stage-enter-label {
+  color:#493352;
+  font-family:"Cormorant Garamond",Georgia,serif;
+  font-weight:600;
+  font-size:clamp(22px,2.2vw,26px);
+  letter-spacing:.015em;
+  line-height:1;
+  white-space:nowrap;
+  text-transform:none;
+}
+.luxury-cover .stage-entry-minimal .stage-enter-ornament {
+  font-family:Georgia,serif;
+  color:#ac8656;
+  font-size:11px;
+  line-height:1;
+  flex:none;
+  opacity:.93;
+}
+@media (hover:hover) {
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover {
+    transform:translate3d(0,-2px,0)!important;
+    box-shadow:0 16px 30px rgba(17,9,24,.32),inset 0 0 0 2px rgba(255,255,255,.58),0 0 0 2px rgba(234,199,151,.36)!important;
+  }
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:active {
+  transform:translate3d(0,1px,0)!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:focus-visible {
+  outline:3px solid #f1d29f!important;
+  outline-offset:5px!important;
+}
+@media(max-width:620px) {
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button {
+    width:min(230px,82%)!important;
+    height:54px!important;
+    min-height:54px!important;
+    gap:16px!important;
+    padding:7px 18px!important;
+  }
+  .luxury-cover .stage-entry-minimal .stage-enter-label{font-size:23px;}
+  .luxury-cover .stage-entry-minimal .stage-enter-ornament{font-size:10px;}
+}
+@media(max-height:700px) {
+  .luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:1px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+    height:49px!important;min-height:49px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{transition:none!important;}
+}
+
+
+/* ===============================================================
+   V42.6.38 — GRAND STAGE DRAPE + MATCHING ENTRY SCREEN
+   Refines only the opening experience. Adds richer top drapery,
+   a slight upper opening movement, smoother curtain draw, and a
+   start card/button that visually matches the screen effect.
+   =============================================================== */
+.luxury-cover .silk-curtain-stage{perspective:1400px!important;overflow:hidden!important;}
+.luxury-cover .silk-curtain-panel{width:50.45%!important;box-shadow:inset 0 0 34px rgba(60,32,70,.14),0 18px 36px rgba(26,12,32,.08)!important;}
+.luxury-cover .silk-curtain-panel::before{opacity:.22!important;mix-blend-mode:soft-light;}
+.luxury-cover .silk-curtain-left{transform-origin:0% 50%!important;}
+.luxury-cover .silk-curtain-right{transform-origin:100% 50%!important;}
+@keyframes weddingSilkSmoothDraw{
+  0%{transform:translate3d(0,0,0) scaleX(1);}
+  14%{transform:translate3d(-.6%,0,0) scaleX(.985);}
+  42%{transform:translate3d(-2.3%,0,0) scaleX(.74);}
+  70%{transform:translate3d(-5.2%,0,0) scaleX(.38);}
+  100%{transform:translate3d(-8.4%,0,0) scaleX(.14);}
+}
+@keyframes weddingSilkSmoothDrawRight{
+  0%{transform:translate3d(0,0,0) scaleX(1);}
+  14%{transform:translate3d(.6%,0,0) scaleX(.985);}
+  42%{transform:translate3d(2.3%,0,0) scaleX(.74);}
+  70%{transform:translate3d(5.2%,0,0) scaleX(.38);}
+  100%{transform:translate3d(8.4%,0,0) scaleX(.14);}
+}
+.luxury-cover.curtain-opening .silk-curtain-left{animation:weddingSilkSmoothDraw 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+.luxury-cover.curtain-opening .silk-curtain-right{animation:weddingSilkSmoothDrawRight 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+
+.luxury-cover .silk-curtain-valance{
+  height:min(31vh,238px)!important;
+  background:none!important;
+  z-index:11!important;
+  overflow:visible!important;
+  transform-origin:50% 0%!important;
+  will-change:transform,opacity!important;
+}
+.luxury-cover .silk-curtain-valance::before{
+  content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:min(1180px,100%);height:100%;
+  background:url("assets/silk-stage-valance.svg") center top / 100% 100% no-repeat;
+  filter:drop-shadow(0 8px 18px rgba(35,18,40,.12));
+  pointer-events:none;
+}
+.luxury-cover .silk-curtain-valance span{
+  display:block!important;position:absolute;top:22px;z-index:1;
+  width:min(33vw,365px);height:min(15vh,145px);
+  background:url("assets/silk-curtain-swag.svg") center / 100% 100% no-repeat;
+  opacity:.98;pointer-events:none;filter:drop-shadow(0 10px 16px rgba(34,19,40,.10));
+  transform-origin:50% 0%;
+}
+.luxury-cover .silk-curtain-valance .curtain-valance-left{left:max(-4vw,-24px);}
+.luxury-cover .silk-curtain-valance .curtain-valance-right{right:max(-4vw,-24px);transform:scaleX(-1);}
+@keyframes weddingValanceLift{
+  0%{transform:translateY(0) scaleY(1);opacity:1;}
+  32%{transform:translateY(-5px) scaleY(.985);opacity:1;}
+  100%{transform:translateY(-24px) scaleY(.86);opacity:.9;}
+}
+@keyframes weddingSwagOpenLeft{
+  0%{transform:translate3d(0,0,0) rotate(0deg) scale(1);opacity:1;}
+  35%{transform:translate3d(-2%,0,0) rotate(-1deg) scale(1);opacity:1;}
+  100%{transform:translate3d(-18%, -12px,0) rotate(-8deg) scale(.86,.82);opacity:.9;}
+}
+@keyframes weddingSwagOpenRight{
+  0%{transform:scaleX(-1) translate3d(0,0,0) rotate(0deg);opacity:1;}
+  35%{transform:scaleX(-1) translate3d(2%,0,0) rotate(1deg);opacity:1;}
+  100%{transform:scaleX(-1) translate3d(18%, -12px,0) rotate(8deg) scale(.86,.82);opacity:.9;}
+}
+.luxury-cover.curtain-opening .silk-curtain-valance{animation:weddingValanceLift 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+.luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-left{animation:weddingSwagOpenLeft 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+.luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-right{animation:weddingSwagOpenRight 4.9s cubic-bezier(.22,.74,.18,1) both!important;}
+
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+  background:
+    radial-gradient(ellipse at 50% -10%, rgba(244,231,203,.16), transparent 43%),
+    radial-gradient(circle at 50% 22%, rgba(195,165,211,.16), transparent 46%),
+    linear-gradient(160deg,#3d2b47 0%,#2e2239 48%,#251b2f 100%)!important;
+  border:1px solid rgba(236,212,175,.34)!important;
+  box-shadow:0 34px 88px rgba(19,10,25,.36), inset 0 0 0 1px rgba(255,255,255,.04)!important;
+  border-radius:28px!important;overflow:hidden!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::before{
+  content:"";position:absolute;inset:0 0 auto 0;height:108px;
+  background:linear-gradient(180deg, rgba(255,255,255,.055), transparent 78%);
+  pointer-events:none;
+}
+.luxury-cover .stage-welcome-card .box-frame{border-color:rgba(232,205,164,.18)!important;}
+.luxury-cover .stage-welcome-kicker{
+  font-size:8.5px!important;letter-spacing:.28em!important;color:#ecd5ad!important;
+  margin-bottom:18px!important;
+}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line{background:linear-gradient(90deg,transparent,rgba(237,206,156,.62),transparent)!important;}
+.luxury-cover .stage-welcome-card .ganesha-emblem{color:#efd8aa!important;}
+.luxury-cover .stage-welcome-card .ganesha-blessing{color:rgba(237,227,246,.88)!important;}
+.luxury-cover .stage-welcome-card .opening-couple-names{
+  color:#fffafc!important;text-shadow:0 8px 26px rgba(16,9,22,.28)!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names i{color:#e9c78f!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider{color:#e9c78f!important;margin-top:16px!important;margin-bottom:12px!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span{background:linear-gradient(90deg,transparent,rgba(233,199,143,.72))!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider span:last-child{background:linear-gradient(90deg,rgba(233,199,143,.72),transparent)!important;}
+.luxury-cover .stage-welcome-card .opening-kannada-line{color:rgba(230,219,239,.92)!important;}
+.luxury-cover .stage-welcome-card .welcome-message-premium{color:rgba(251,246,252,.78)!important;max-width:430px!important;}
+
+.luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:6px!important;}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+  width:min(274px,88%)!important;height:62px!important;min-height:62px!important;
+  gap:14px!important;padding:8px 26px!important;border-radius:18px!important;
+  border:1px solid rgba(240,211,164,.86)!important;
+  background:linear-gradient(135deg,#fbf4ec 0%,#efe3ef 50%,#fbf0e5 100%)!important;
+  box-shadow:0 16px 34px rgba(20,10,26,.28), inset 0 1px 0 rgba(255,255,255,.86), inset 0 -1px 0 rgba(190,153,103,.18)!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{
+  content:""!important;display:block!important;position:absolute;top:50%;width:34px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(177,128,73,.72),rgba(177,128,73,.18));
+  transform:translateY(-50%);opacity:.8;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before{left:18px;}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{right:18px;transform:translateY(-50%) scaleX(-1);}
+.luxury-cover .stage-entry-minimal .stage-enter-label{font-size:clamp(23px,2.35vw,28px)!important;color:#4b3157!important;letter-spacing:.02em!important;}
+.luxury-cover .stage-entry-minimal .stage-enter-ornament{font-size:10px!important;color:#b7874b!important;opacity:.95!important;}
+@media(hover:hover){
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover{
+    transform:translate3d(0,-3px,0)!important;
+    box-shadow:0 20px 38px rgba(20,10,26,.32), inset 0 1px 0 rgba(255,255,255,.9),0 0 0 2px rgba(233,199,142,.22)!important;
+  }
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:active{transform:translate3d(0,0,0)!important;box-shadow:0 11px 24px rgba(20,10,26,.22), inset 0 1px 0 rgba(255,255,255,.8)!important;}
+@media(max-width:768px){
+  .luxury-cover .silk-curtain-valance{height:min(26vh,196px)!important;}
+  .luxury-cover .silk-curtain-valance span{top:20px;width:min(39vw,250px);height:min(12vh,102px);}
+  .luxury-cover .stage-welcome-kicker{margin-bottom:15px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{width:min(242px,84%)!important;height:56px!important;min-height:56px!important;padding:7px 22px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{width:26px;}
+}
+@media(max-width:430px){
+  .luxury-cover .silk-curtain-valance{height:min(24vh,166px)!important;}
+  .luxury-cover .silk-curtain-valance span{top:18px;width:min(42vw,192px);height:min(10vh,84px);}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{width:min(224px,82%)!important;height:53px!important;min-height:53px!important;}
+  .luxury-cover .stage-entry-minimal .stage-enter-label{font-size:22px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left{animation-duration:.95s!important;}
+  .luxury-cover.curtain-opening .silk-curtain-right{animation-duration:.95s!important;}
+  .luxury-cover.curtain-opening .silk-curtain-valance,
+  .luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-left,
+  .luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-right{animation-duration:.95s!important;}
+}
+
+/* ================================================================
+ V42.6.39 — SILK THEATRE REVEAL: FOUR COMPOSITED PANELS
+ Eliminates heavy transforming/scaling drop-shadow/complex valance.
+ Only transform on prepainted fabric layers is animated.
+ ================================================================ */
+.luxury-cover .silk-curtain-stage{
+  position:absolute!important;inset:0!important;z-index:8!important;
+  overflow:hidden!important;isolation:isolate!important;
+  perspective:none!important;pointer-events:none!important;
+}
+.luxury-cover .silk-curtain-panel{
+  top:0!important;bottom:0!important;width:50.2%!important;
+  box-shadow:none!important;filter:none!important;contain:paint!important;
+  background-position:center top!important;background-size:100% 100%!important;
+  will-change:transform!important;transform:translate3d(0,0,0);
+  transform-origin:center!important;backface-visibility:hidden!important;
+  transition:none!important;animation:none!important;
+}
+.luxury-cover .silk-curtain-panel::before{
+  opacity:.12!important;mix-blend-mode:normal!important;
+}
+.luxury-cover .silk-curtain-left{left:0!important;right:auto!important;}
+.luxury-cover .silk-curtain-right{right:0!important;left:auto!important;}
+@keyframes weddingCurtainGrandDrawLeft{
+  0%{transform:translate3d(0,0,0)}
+  12%{transform:translate3d(-2%,0,0)}
+  100%{transform:translate3d(-102%,0,0)}
+}
+@keyframes weddingCurtainGrandDrawRight{
+  0%{transform:translate3d(0,0,0)}
+  12%{transform:translate3d(2%,0,0)}
+  100%{transform:translate3d(102%,0,0)}
+}
+.luxury-cover.curtain-opening .silk-curtain-left{
+  animation:weddingCurtainGrandDrawLeft 3.65s cubic-bezier(.35,.04,.22,1) both!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-right{
+  animation:weddingCurtainGrandDrawRight 3.65s cubic-bezier(.35,.04,.22,1) both!important;
+}
+/* Top is not a single stretched valance: two separate scalloped silk sections
+   open to the sides in sync with their matching curtains. */
+.luxury-cover .silk-curtain-valance{
+  position:absolute!important;inset:0 0 auto 0!important;
+  height:clamp(124px,24vh,220px)!important;
+  z-index:11!important;overflow:visible!important;
+  background:none!important;box-shadow:none!important;
+  filter:none!important;opacity:1!important;
+  transform:none!important;will-change:auto!important;
+  animation:none!important;pointer-events:none!important;
+}
+.luxury-cover .silk-curtain-valance::before,
+.luxury-cover .silk-curtain-valance::after{
+  content:none!important;display:none!important;
+}
+.luxury-cover .silk-curtain-valance span{
+  display:block!important;position:absolute!important;top:0!important;
+  width:50.2%!important;height:100%!important;opacity:1!important;
+  filter:none!important;box-shadow:none!important;
+  transform:translate3d(0,0,0)!important;backface-visibility:hidden!important;
+  will-change:transform!important;transition:none!important;animation:none!important;
+  background-size:100% 100%!important;background-position:center top!important;
+  background-repeat:no-repeat!important;
+}
+.luxury-cover .silk-curtain-valance .curtain-valance-left{
+  left:0!important;right:auto!important;
+  background-image:url("assets/theatre-top-left.svg")!important;
+}
+.luxury-cover .silk-curtain-valance .curtain-valance-right{
+  right:0!important;left:auto!important;
+  background-image:url("assets/theatre-top-right.svg")!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-valance{
+  animation:none!important;transform:none!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-left{
+  animation:weddingCurtainGrandDrawLeft 3.65s cubic-bezier(.35,.04,.22,1) both!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-right{
+  animation:weddingCurtainGrandDrawRight 3.65s cubic-bezier(.35,.04,.22,1) both!important;
+}
+/* Calm, coordinated background reveal. No blur animation. */
+.luxury-cover.curtain-activated .opening-home-veil{
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;
+  transition:opacity 1.75s cubic-bezier(.22,.6,.25,1)!important;
+}
+.luxury-cover.curtain-activated .cover-photo,
+.luxury-cover.curtain-activated .floating-specks,
+.luxury-cover.curtain-activated .cover-vignette{animation-play-state:paused!important;}
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox{
+  opacity:0!important;transition:opacity .28s ease!important;
+}
+/* Redesigned welcome plaque: light, warm, composed, no busy corners. */
+.luxury-cover .opening-frame-shell{
+  width:min(570px,89vw)!important;
+  height:min(610px,80dvh)!important;
+  max-height:83dvh!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+  border-radius:25px!important;
+  padding:30px 35px 24px!important;
+  background:
+   radial-gradient(ellipse at 50% 0%,rgba(203,175,221,.23),transparent 48%),
+   linear-gradient(155deg,#483550 0%,#382842 54%,#302137 100%)!important;
+  border:1px solid rgba(236,206,156,.46)!important;
+  box-shadow:0 24px 65px rgba(29,16,39,.33),inset 0 0 0 4px rgba(255,248,235,.045)!important;
+  overflow:hidden!important;
+}
+.luxury-cover .stage-welcome-card .box-frame,
+.luxury-cover .stage-welcome-card .corner-ornament{display:none!important;}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::before{
+  content:"";position:absolute;inset:11px;pointer-events:none;
+  border:1px solid rgba(237,206,157,.26);border-radius:17px;
+  height:auto;background:none;opacity:1;
+}
+.luxury-cover .stage-welcome-kicker{
+  margin:0 auto clamp(11px,2vh,17px)!important;
+  font-size:8.5px!important;font-weight:500!important;
+  letter-spacing:.27em!important;line-height:1.4!important;
+  color:#f0d3a2!important;
+}
+.luxury-cover .stage-welcome-kicker .stage-welcome-line{
+  background:linear-gradient(90deg,transparent,rgba(234,194,133,.7))!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-opening-block{
+  width:min(475px,94%)!important;
+  margin:0 auto clamp(13px,2vh,19px)!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-emblem{
+  width:64px!important;height:64px!important;margin:0 auto 7px!important;
+  color:#edce9c!important;filter:none!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-blessing{
+  color:#eee2f2!important;font-size:clamp(12px,1.55vw,15px)!important;
+  margin:0 0 8px!important;letter-spacing:.01em!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names{
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:clamp(41px,5.2vw,62px)!important;
+  color:#fff8f7!important;line-height:1.06!important;
+  gap:14px!important;letter-spacing:-.02em!important;
+  text-shadow:0 8px 20px rgba(15,7,18,.20)!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names i{color:#eac790!important;}
+.luxury-cover .stage-welcome-card .opening-name-divider{
+  margin:12px auto 11px!important;color:#eac790!important;
+}
+.luxury-cover .stage-welcome-card .opening-kannada-line{
+  color:#eadbf1!important;font-size:clamp(13px,1.8vw,16px)!important;
+  margin:0 0 11px!important;
+}
+.luxury-cover .stage-welcome-card .welcome-message-premium{
+  color:rgba(251,244,249,.82)!important;
+  font-size:clamp(11.5px,1.3vw,13px)!important;line-height:1.65!important;
+  max-width:390px!important;
+}
+.luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:7px!important;}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+  position:relative!important;width:min(230px,83%)!important;
+  height:54px!important;min-height:54px!important;
+  border-radius:999px!important;gap:13px!important;
+  border:1px solid #e7c891!important;
+  background:linear-gradient(115deg,#fff9f0,#eee2ed 52%,#fff6e8)!important;
+  box-shadow:0 9px 24px rgba(19,8,25,.26),inset 0 1px 0 #fff!important;
+  padding:6px 19px!important;
+  transform:none!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{
+  content:none!important;display:none!important;
+}
+.luxury-cover .stage-entry-minimal .stage-enter-label{
+  color:#4b3456!important;font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:25px!important;letter-spacing:0!important;font-weight:600!important;
+}
+.luxury-cover .stage-entry-minimal .stage-enter-ornament{color:#b48956!important;font-size:9px!important;}
+@media(hover:hover){
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover{
+    transform:translateY(-2px)!important;
+    box-shadow:0 13px 25px rgba(19,8,25,.3),inset 0 1px 0 #fff!important;
+  }
+}
+@media(max-width:620px){
+  .luxury-cover .silk-curtain-valance{height:clamp(110px,20vh,160px)!important;}
+  .luxury-cover .opening-frame-shell{
+    width:min(350px,88vw)!important;height:min(542px,74dvh)!important;
+  }
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+    padding:23px 20px 18px!important;
+  }
+  .luxury-cover .stage-welcome-kicker{font-size:7px!important;letter-spacing:.19em!important;gap:7px!important;margin-bottom:13px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-emblem{width:55px!important;height:55px!important;}
+  .luxury-cover .stage-welcome-card .opening-couple-names{
+    font-size:clamp(33px,9vw,43px)!important;gap:8px!important;
+  }
+  .luxury-cover .stage-welcome-card .ganesha-blessing{font-size:12px!important;}
+  .luxury-cover .stage-welcome-card .opening-kannada-line{font-size:12.5px!important;}
+  .luxury-cover .stage-welcome-card .welcome-message-premium{font-size:10.7px!important;max-width:300px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+    width:min(217px,82%)!important;height:50px!important;min-height:50px!important;
+  }
+  .luxury-cover .stage-entry-minimal .stage-enter-label{font-size:23px!important;}
+}
+@media(max-height:690px) and (max-width:620px){
+  .luxury-cover .opening-frame-shell{height:85dvh!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{padding:15px 14px 13px!important;}
+  .luxury-cover .stage-welcome-kicker{margin-bottom:6px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-emblem{width:40px!important;height:40px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{margin-bottom:8px!important;}
+  .luxury-cover .stage-welcome-card .opening-name-divider{margin:8px auto 6px!important;}
+  .luxury-cover .stage-welcome-card .opening-kannada-line{margin-bottom:6px!important;}
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{height:46px!important;min-height:46px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right,
+  .luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-left,
+  .luxury-cover.curtain-opening .silk-curtain-valance .curtain-valance-right{
+    animation-duration:.8s!important;
+  }
+}
+
+/* V42.6.39 final performance refinement: decorative top silk is
+   baked into each moving curtain's background. Only TWO animated
+   layers remain, ensuring that upper and side curtains open together. */
+.luxury-cover .silk-curtain-left{
+  background-image:url("assets/theatre-top-left.svg"),url("assets/silk-curtain-left.webp")!important;
+  background-size:100% clamp(116px,24vh,218px),100% 100%!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-position:center top,center top!important;
+}
+.luxury-cover .silk-curtain-right{
+  background-image:url("assets/theatre-top-right.svg"),url("assets/silk-curtain-right.webp")!important;
+  background-size:100% clamp(116px,24vh,218px),100% 100%!important;
+  background-repeat:no-repeat,no-repeat!important;
+  background-position:center top,center top!important;
+}
+.luxury-cover .silk-curtain-valance{display:none!important;}
+@media(max-width:620px){
+  .luxury-cover .silk-curtain-left,.luxury-cover .silk-curtain-right{
+    background-size:100% clamp(110px,20vh,165px),100% 100%!important;
+  }
+}
+
+
+/* ===============================================================
+   V42.6.40 — REAL 1.5 SECOND CURTAIN OPENING
+   Two compositor-only transforms. Fixed timeline eliminates old
+   animationend/fallback conflicts and the abrupt homepage jump.
+   =============================================================== */
+@keyframes v42640LeftOpen {
+  0% { transform:translate3d(0,0,0) scaleX(1); }
+  15% { transform:translate3d(-4%,0,0) scaleX(.995); }
+  58% { transform:translate3d(-53%,0,0) scaleX(.94); }
+  100% { transform:translate3d(-105%,0,0) scaleX(.90); }
+}
+@keyframes v42640RightOpen {
+  0% { transform:translate3d(0,0,0) scaleX(1); }
+  15% { transform:translate3d(4%,0,0) scaleX(.995); }
+  58% { transform:translate3d(53%,0,0) scaleX(.94); }
+  100% { transform:translate3d(105%,0,0) scaleX(.90); }
+}
+.luxury-cover .silk-curtain-panel {
+  backface-visibility:hidden!important;
+  -webkit-backface-visibility:hidden!important;
+  contain:paint!important;
+  transition:none!important;
+  transform:translate3d(0,0,0) scaleX(1);
+}
+.luxury-cover.curtain-opening .silk-curtain-left {
+  animation:v42640LeftOpen 1.30s cubic-bezier(.42,.05,.2,1) both!important;
+  transform-origin:left center!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-right {
+  animation:v42640RightOpen 1.30s cubic-bezier(.42,.05,.2,1) both!important;
+  transform-origin:right center!important;
+}
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox {
+  opacity:0!important;
+  transition:opacity .14s ease-out!important;
+  pointer-events:none!important;
+}
+.luxury-cover.curtain-activated .opening-home-veil {
+  opacity:0!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  transition:opacity .16s linear!important;
+}
+.luxury-cover.curtain-activated .cover-photo,
+.luxury-cover.curtain-activated .cover-vignette,
+.luxury-cover.curtain-activated .cover-noise,
+.luxury-cover.curtain-activated .floating-specks {
+  opacity:0!important;
+  transition:opacity .16s linear!important;
+  animation-play-state:paused!important;
+  pointer-events:none!important;
+}
+.luxury-cover.curtain-activated { background:transparent!important; }
+/* Respect reduced motion without skipping the 1.5s entrance entirely. */
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right {
+    animation-duration:1.30s!important;
+  }
+}
+
+
+/* ================================================================
+   V42.6.42 — CONTINUOUS 2.5-SECOND CURTAIN REVEAL
+   Both silk panels animate steadily from the tap to the final open
+   position. The invitation dissolves during the same movement;
+   there is no initial wait, midpoint hesitation or finishing hold.
+   ================================================================ */
+@keyframes v42641ContinuousLeft {
+  from { transform:translate3d(0,0,0) scaleX(1); }
+  to   { transform:translate3d(-106%,0,0) scaleX(.90); }
+}
+@keyframes v42641ContinuousRight {
+  from { transform:translate3d(0,0,0) scaleX(1); }
+  to   { transform:translate3d(106%,0,0) scaleX(.90); }
+}
+.luxury-cover.curtain-opening .silk-curtain-left {
+  animation:v42641ContinuousLeft 2.5s cubic-bezier(.28,.12,.22,1) both!important;
+}
+.luxury-cover.curtain-opening .silk-curtain-right {
+  animation:v42641ContinuousRight 2.5s cubic-bezier(.28,.12,.22,1) both!important;
+}
+/* Make the welcome card disappear in concert with the moving curtains,
+   rather than waiting before the curtains begin. */
+.luxury-cover.curtain-activated .opening-frame-shell > #invitationBox {
+  opacity:0!important;
+  transform:translate3d(0,-10px,0) scale(.99)!important;
+  transition:opacity .32s ease-out,transform .32s ease-out!important;
+  pointer-events:none!important;
+}
+/* Expose the live homepage through the opening from the first frame. */
+.luxury-cover.curtain-activated .opening-home-veil,
+.luxury-cover.curtain-activated .cover-photo,
+.luxury-cover.curtain-activated .cover-vignette,
+.luxury-cover.curtain-activated .cover-noise,
+.luxury-cover.curtain-activated .floating-specks {
+  opacity:0!important;
+  transition:opacity .25s linear!important;
+  pointer-events:none!important;
+}
+.luxury-cover.curtain-activated {
+  background:transparent!important;
+}
+/* Keep a short yet visible simplified reveal for guests who reduce motion. */
+@media (prefers-reduced-motion:reduce) {
+  .luxury-cover.curtain-opening .silk-curtain-left,
+  .luxury-cover.curtain-opening .silk-curtain-right {
+    animation-duration:2.5s!important;
+  }
+}
+nn/* ==============================================================
+   V42.6.43 — ROYAL ARCHED WELCOME / INTRO ONLY
+   The original 2.5-second silk curtain opening is untouched.
+   Replaces the square entrance plaque with a refined arched portal.
+   ============================================================= */
+.luxury-cover .opening-frame-shell {
+  width:min(545px,90vw)!important;
+  height:min(690px,86dvh)!important;
+  max-height:88dvh!important;
+  overflow:visible!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome {
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  padding:96px 36px 38px!important;
+  border-radius:49% 49% 24px 24px / 27% 27% 24px 24px!important;
+  background:
+    radial-gradient(ellipse at 50% 8%,rgba(179,145,195,.23) 0%,transparent 54%),
+    radial-gradient(ellipse at 50% 90%,rgba(74,43,87,.42) 0%,transparent 60%),
+    linear-gradient(165deg,#513858 0%,#36263f 48%,#251b30 100%)!important;
+  border:1.5px solid rgba(243,213,164,.85)!important;
+  box-shadow:
+    0 23px 64px rgba(21,11,27,.38),
+    inset 0 0 0 4px rgba(255,248,235,.07),
+    inset 0 1px 0 rgba(255,255,255,.12)!important;
+  overflow:hidden!important;
+  justify-content:center!important;
+  align-items:center!important;
+  isolation:isolate!important;
+}
+/* A matching inner gold arch—kept static for smooth entrance animation. */
+.luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome::before {
+  content:""!important;
+  display:block!important;
+  position:absolute!important;
+  inset:11px!important;
+  height:auto!important;
+  border:1px solid rgba(230,195,140,.40)!important;
+  border-radius:49% 49% 16px 16px / 26% 26% 16px 16px!important;
+  background:none!important;
+  opacity:1!important;
+  pointer-events:none!important;
+  z-index:0!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome::after {
+  content:"";display:block;position:absolute;
+  left:50%;bottom:20px;width:120px;height:1px;
+  transform:translateX(-50%);
+  background:linear-gradient(90deg,transparent,rgba(238,204,154,.52),transparent);
+  pointer-events:none;
+}
+.luxury-cover .royal-arched-welcome .box-glow,
+.luxury-cover .royal-arched-welcome .box-frame,
+.luxury-cover .royal-arched-welcome .corner-ornament {display:none!important;}
+.luxury-cover .royal-arched-welcome > .royal-arch-crest {
+  display:grid;place-items:center;
+  position:absolute;top:44px;left:50%;transform:translateX(-50%);
+  width:50px;height:32px;color:#e9c996;
+  font-family:Georgia,serif;font-size:13px;line-height:1;
+  pointer-events:none;
+}
+.luxury-cover .royal-arched-welcome > .royal-arch-crest::before,
+.luxury-cover .royal-arched-welcome > .royal-arch-crest::after {
+  content:"";position:absolute;top:50%;width:44px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(235,204,158,.7));
+}
+.luxury-cover .royal-arched-welcome > .royal-arch-crest::before {right:calc(100% - 1px);}
+.luxury-cover .royal-arched-welcome > .royal-arch-crest::after {left:calc(100% - 1px);transform:scaleX(-1);}
+.luxury-cover .royal-arched-welcome > .stage-welcome-kicker,
+.luxury-cover .royal-arched-welcome > .ganesha-opening-block,
+.luxury-cover .royal-arched-welcome > .stage-entry-actions {
+  position:relative;z-index:1!important;
+}
+.luxury-cover .royal-arched-welcome > .stage-welcome-kicker {
+  margin:0 auto 20px!important;width:min(355px,89%)!important;
+  color:#e7ca9b!important;
+  font-size:9px!important;letter-spacing:.28em!important;
+}
+.luxury-cover .royal-arched-welcome > .ganesha-opening-block {
+  width:min(460px,97%)!important;
+  margin:0 auto 25px!important;
+}
+.luxury-cover .royal-arched-welcome .ganesha-emblem {
+  width:76px!important;height:76px!important;
+  margin:0 auto 10px!important;
+  color:#ebd2a5!important;
+  filter:drop-shadow(0 5px 9px rgba(18,10,23,.14))!important;
+}
+.luxury-cover .royal-arched-welcome .ganesha-blessing {
+  font-size:clamp(13px,1.7vw,16px)!important;
+  margin:0 0 12px!important;
+  color:rgba(240,232,248,.95)!important;
+  line-height:1.55!important;
+}
+.luxury-cover .royal-arched-welcome .opening-couple-names {
+  margin:0 auto 0!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-size:clamp(48px,5.4vw,67px)!important;
+  font-weight:600!important;
+  line-height:1.06!important;
+  letter-spacing:-.026em!important;
+  gap:13px!important;
+  color:#fff8fa!important;
+  text-shadow:0 7px 20px rgba(15,7,20,.27)!important;
+}
+.luxury-cover .royal-arched-welcome .opening-couple-names i {color:#e9c690!important;}
+.luxury-cover .royal-arched-welcome .opening-name-divider {
+  width:min(214px,66%)!important;
+  margin:18px auto 14px!important;color:#e7c58f!important;
+}
+.luxury-cover .royal-arched-welcome .opening-kannada-line {
+  font-size:clamp(13px,1.8vw,16px)!important;
+  color:rgba(233,222,241,.96)!important;
+  margin:0 0 13px!important;
+  line-height:1.55!important;
+}
+.luxury-cover .royal-arched-welcome .welcome-message-premium {
+  max-width:365px!important;
+  margin:0 auto!important;
+  color:rgba(251,245,252,.78)!important;
+  font-family:"DM Sans",sans-serif!important;
+  font-size:clamp(11px,1.25vw,13px)!important;
+  line-height:1.75!important;
+  letter-spacing:.005em!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal {
+  margin:9px auto 0!important;
+  width:100%!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button {
+  width:min(245px,83%)!important;
+  min-width:0!important;
+  height:54px!important;min-height:54px!important;
+  border-radius:999px!important;
+  border:1px solid #e8c991!important;
+  padding:7px 20px!important;
+  background:linear-gradient(115deg,#fff8ef 0%,#f1e8f2 52%,#fff5e7 100%)!important;
+  box-shadow:0 10px 23px rgba(18,8,24,.27),inset 0 1px 0 #fff!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button::after {
+  content:none!important;display:none!important;
+}
+.luxury-cover .royal-arched-welcome .stage-enter-label {
+  color:#513957!important;
+  font-size:25px!important;
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-weight:600!important;
+  letter-spacing:.01em!important;
+}
+.luxury-cover .royal-arched-welcome .stage-enter-ornament{font-size:9px!important;color:#b28b59!important;}
+@media(max-width:620px) {
+  .luxury-cover .opening-frame-shell {
+    width:min(370px,88vw)!important;
+    height:min(662px,84dvh)!important;
+    max-height:86dvh!important;
+  }
+  .luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome {
+    padding:84px 24px 30px!important;
+    border-radius:49% 49% 22px 22px / 24% 24% 22px 22px!important;
+  }
+  .luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome::before {
+    inset:9px!important;border-radius:49% 49% 16px 16px / 24% 24% 16px 16px!important;
+  }
+  .luxury-cover .royal-arched-welcome > .royal-arch-crest{top:35px;}
+  .luxury-cover .royal-arched-welcome > .stage-welcome-kicker{
+    font-size:7.5px!important;letter-spacing:.18em!important;
+    margin-bottom:14px!important;width:min(290px,95%)!important;
+  }
+  .luxury-cover .royal-arched-welcome .ganesha-emblem{
+    width:58px!important;height:58px!important;margin-bottom:7px!important;
+  }
+  .luxury-cover .royal-arched-welcome > .ganesha-opening-block{margin-bottom:19px!important;width:98%!important;}
+  .luxury-cover .royal-arched-welcome .ganesha-blessing{
+    font-size:12.5px!important;margin-bottom:10px!important;
+  }
+  .luxury-cover .royal-arched-welcome .opening-couple-names {
+    font-size:clamp(33px,8.6vw,46px)!important;
+    gap:8px!important;
+  }
+  .luxury-cover .royal-arched-welcome .opening-name-divider{margin:13px auto 10px!important;}
+  .luxury-cover .royal-arched-welcome .opening-kannada-line{
+    font-size:12.4px!important;margin-bottom:10px!important;
+  }
+  .luxury-cover .royal-arched-welcome .welcome-message-premium {
+    max-width:305px!important;font-size:10.8px!important;line-height:1.62!important;
+  }
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button {
+    width:min(218px,85%)!important;height:51px!important;min-height:51px!important;
+  }
+  .luxury-cover .royal-arched-welcome .stage-enter-label{font-size:23px!important;}
+}
+@media(max-width:390px){
+  .luxury-cover .opening-frame-shell{width:min(340px,90vw)!important;height:min(610px,86dvh)!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome{padding:67px 18px 23px!important;}
+  .luxury-cover .royal-arched-welcome > .royal-arch-crest{top:26px;}
+  .luxury-cover .royal-arched-welcome > .stage-welcome-kicker{margin-bottom:9px!important;}
+  .luxury-cover .royal-arched-welcome .ganesha-emblem{width:51px!important;height:51px!important;}
+  .luxury-cover .royal-arched-welcome > .ganesha-opening-block{margin-bottom:13px!important;}
+  .luxury-cover .royal-arched-welcome .opening-couple-names{font-size:clamp(30px,8.1vw,38px)!important;}
+  .luxury-cover .royal-arched-welcome .opening-name-divider{margin:10px auto 8px!important;}
+  .luxury-cover .royal-arched-welcome .opening-kannada-line{font-size:11.8px!important;margin-bottom:8px!important;}
+  .luxury-cover .royal-arched-welcome .welcome-message-premium{font-size:10.2px!important;line-height:1.55!important;}
+}
+@media(max-height:710px){
+  .luxury-cover .opening-frame-shell{height:89dvh!important;max-height:89dvh!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.royal-arched-welcome{padding-top:57px!important;padding-bottom:19px!important;}
+  .luxury-cover .royal-arched-welcome > .royal-arch-crest{top:19px;}
+  .luxury-cover .royal-arched-welcome > .stage-welcome-kicker{margin-bottom:8px!important;}
+  .luxury-cover .royal-arched-welcome .ganesha-emblem{width:44px!important;height:44px!important;margin-bottom:5px!important;}
+  .luxury-cover .royal-arched-welcome .ganesha-blessing{margin-bottom:7px!important;}
+  .luxury-cover .royal-arched-welcome > .ganesha-opening-block{margin-bottom:11px!important;}
+  .luxury-cover .royal-arched-welcome .opening-name-divider{margin:8px auto 6px!important;}
+  .luxury-cover .royal-arched-welcome .opening-kannada-line{margin-bottom:6px!important;}
+  .luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal{margin-top:4px!important;}
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button{height:47px!important;min-height:47px!important;}
+}
+
+
+/* =========================================================
+   V42.6.44 — PETITE IVORY ENTRY CONTROL (intro only)
+   Keeps royal arch and 2.5-second continuous curtains intact.
+   A compact satin-ivory lozenge replaces the oversized CTA.
+   ========================================================= */
+.luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal {
+  margin:clamp(11px,1.6vh,17px) auto 0!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button {
+  box-sizing:border-box!important;
+  width:184px!important;
+  min-width:0!important;
+  max-width:76%!important;
+  height:42px!important;
+  min-height:42px!important;
+  padding:0 16px!important;
+  gap:12px!important;
+  justify-content:center!important;
+  align-items:center!important;
+  border-radius:999px!important;
+  border:1px solid rgba(225,196,151,.82)!important;
+  background:linear-gradient(135deg,#fffaf4 0%,#f4edf4 47%,#fff9f1 100%)!important;
+  color:#4d3559!important;
+  box-shadow:0 5px 14px rgba(19,11,24,.18),inset 0 1px 0 rgba(255,255,255,.97)!important;
+  animation:none!important;
+  transform:translate3d(0,0,0)!important;
+  transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button::before,
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button::after {
+  display:none!important;
+  content:none!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-enter-label {
+  font-family:"DM Sans",sans-serif!important;
+  font-size:10.5px!important;
+  font-weight:600!important;
+  line-height:1!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
+  color:#51395b!important;
+  white-space:nowrap;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-entry-flourish {
+  display:block;
+  width:15px;
+  height:1px;
+  flex:0 0 15px;
+  background:linear-gradient(90deg,transparent,#c7a677);
+  opacity:.9;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-entry-arrow {
+  display:block;
+  width:15px;height:15px;
+  flex:0 0 15px;
+  fill:none;stroke:#a17a4c;
+  stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .24s ease;
+}
+@media(hover:hover){
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button:hover{
+    transform:translate3d(0,-2px,0)!important;
+    border-color:rgba(235,204,152,.95)!important;
+    box-shadow:0 9px 20px rgba(19,11,24,.22),inset 0 1px 0 rgba(255,255,255,.98)!important;
+  }
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button:hover .stage-entry-arrow{
+    transform:translateX(3px);
+  }
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button:active{
+  transform:translate3d(0,1px,0)!important;
+}
+.luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button:focus-visible{
+  outline:2px solid #f6dfb3!important;
+  outline-offset:4px!important;
+}
+@media(max-width:620px){
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button{
+    width:176px!important;height:41px!important;min-height:41px!important;
+    padding:0 14px!important;gap:11px!important;
+  }
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-enter-label{font-size:10px!important;}
+}
+@media(max-height:710px){
+  .luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal{margin-top:6px!important;}
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button{
+    height:39px!important;min-height:39px!important;
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button,
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-entry-arrow{transition:none!important;}
+}
+
+
+/* ===============================================================
+   V42.6.45 — Royal Floral Refinement
+   Preserves V42.6.44/V42.6.43 opening layout and 2.5s curtain motion,
+   while refining the emblem, mobile spacing, floral arch details,
+   and subtle premium hover highlight on the petite ivory button.
+   =============================================================== */
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{
+  border-radius:34px 34px 26px 26px!important;
+  border-color:rgba(236,206,156,.42)!important;
+  box-shadow:0 26px 70px rgba(29,16,39,.34),inset 0 0 0 1px rgba(255,248,235,.04)!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::before{
+  inset:12px!important;
+  border-radius:24px 24px 18px 18px!important;
+  border-color:rgba(237,206,157,.24)!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;opacity:.95;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cg fill='none' stroke='%23E7C891' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' opacity='.75'%3E%3Cpath d='M24 76c12-28 34-44 64-48 7 22 1 41-16 57-10 10-23 18-39 22 8-14 8-26-1-31-10-5-18 4-17 14-7-2-12-7-15-14 4-7 12-12 24-14'/%3E%3Cpath d='M55 48c6 11 6 22 0 34'/%3E%3Cpath d='M79 35c10 6 15 15 16 28'/%3E%3Ccircle cx='88' cy='28' r='4' fill='%23E7C891'/%3E%3Cpath d='M196 76c-12-28-34-44-64-48-7 22-1 41 16 57 10 10 23 18 39 22-8-14-8-26 1-31 10-5 18 4 17 14 7-2 12-7 15-14-4-7-12-12-24-14'/%3E%3Cpath d='M165 48c-6 11-6 22 0 34'/%3E%3Cpath d='M141 35c-10 6-15 15-16 28'/%3E%3Ccircle cx='132' cy='28' r='4' fill='%23E7C891'/%3E%3C/g%3E%3C/svg%3E") top center/100% auto no-repeat;
+}
+.luxury-cover .stage-welcome-card .ganesha-opening-block,
+.luxury-cover .stage-welcome-card .stage-entry-actions{position:relative;z-index:1;}
+.luxury-cover .stage-welcome-card .ganesha-emblem{
+  width:68px!important;height:68px!important;margin:0 auto 9px!important;color:#efd1a0!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-emblem path,
+.luxury-cover .stage-welcome-card .ganesha-emblem circle{
+  stroke-width:1.46!important;stroke-linecap:round!important;stroke-linejoin:round!important;
+}
+.luxury-cover .stage-welcome-card .ganesha-emblem .ganesha-halo{opacity:.42!important;}
+.luxury-cover .stage-welcome-card .ganesha-emblem .ganesha-base{opacity:.62!important;}
+.luxury-cover .stage-welcome-card .ganesha-blessing{
+  margin:0 0 11px!important;letter-spacing:.014em!important;
+}
+.luxury-cover .stage-welcome-card .opening-couple-names{
+  margin-top:2px!important;
+}
+.luxury-cover .stage-welcome-card .opening-name-divider{margin:13px auto 11px!important;}
+.luxury-cover .stage-welcome-card .opening-kannada-line{margin:0 0 12px!important;}
+.luxury-cover .stage-welcome-card .welcome-message-premium{max-width:400px!important;}
+
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button{
+  overflow:hidden!important;
+  transition:transform .26s ease, box-shadow .26s ease, border-color .26s ease, background .26s ease!important;
+}
+.luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button::after{
+  content:""!important;display:block!important;position:absolute;inset:0;pointer-events:none;opacity:0;
+  background:linear-gradient(120deg,rgba(255,255,255,0) 18%,rgba(245,214,157,.18) 43%,rgba(255,249,236,.52) 50%,rgba(244,212,151,.18) 57%,rgba(255,255,255,0) 82%);
+  transform:translateX(-118%);transition:transform .58s ease, opacity .25s ease;
+}
+@media(hover:hover){
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover{
+    border-color:#ebcf9a!important;
+    background:linear-gradient(115deg,#fffaf2,#f2e8f2 54%,#fff9ee)!important;
+    box-shadow:0 14px 28px rgba(19,8,25,.29), inset 0 1px 0 #fff, 0 0 0 1px rgba(232,199,143,.18)!important;
+  }
+  .luxury-cover .stage-entry-minimal #openInvitation.stage-enter-button:hover::after{
+    opacity:1;transform:translateX(118%);
+  }
+}
+
+@media(max-width:620px){
+  .luxury-cover .opening-frame-shell{width:min(352px,88vw)!important;height:min(548px,77dvh)!important;max-height:79dvh!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{padding:24px 20px 19px!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::before{inset:10px!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card::after{background-size:100% auto!important;opacity:.9!important;}
+  .luxury-cover .stage-welcome-kicker{margin-bottom:14px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{width:96%!important;margin-bottom:19px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-emblem{width:58px!important;height:58px!important;margin-bottom:6px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-blessing{font-size:12.4px!important;margin-bottom:9px!important;}
+  .luxury-cover .stage-welcome-card .opening-couple-names{font-size:clamp(34px,9vw,44px)!important;gap:8px!important;line-height:1.08!important;}
+  .luxury-cover .stage-welcome-card .opening-name-divider{margin:10px auto 9px!important;}
+  .luxury-cover .stage-welcome-card .opening-kannada-line{font-size:12.8px!important;margin-bottom:10px!important;}
+  .luxury-cover .stage-welcome-card .welcome-message-premium{font-size:10.9px!important;line-height:1.62!important;max-width:292px!important;}
+  .luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:8px!important;}
+}
+@media(max-height:690px) and (max-width:620px){
+  .luxury-cover .opening-frame-shell{height:84dvh!important;}
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card{padding:16px 14px 14px!important;}
+  .luxury-cover .stage-welcome-kicker{margin-bottom:7px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-opening-block{margin-bottom:10px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-emblem{width:46px!important;height:46px!important;}
+  .luxury-cover .stage-welcome-card .ganesha-blessing{margin-bottom:6px!important;font-size:11.8px!important;}
+  .luxury-cover .stage-welcome-card .opening-couple-names{font-size:clamp(29px,8.2vw,38px)!important;}
+  .luxury-cover .stage-welcome-card .opening-name-divider{margin:8px auto 6px!important;}
+  .luxury-cover .stage-welcome-card .opening-kannada-line{margin-bottom:7px!important;font-size:12px!important;}
+  .luxury-cover .stage-welcome-card .welcome-message-premium{font-size:10px!important;line-height:1.55!important;}
+  .luxury-cover .stage-entry-actions.stage-entry-minimal{margin-top:5px!important;}
+}
+
+
+/* ======================================================================
+   V42.6.47 — FINAL LUXURY POLISH (V42.6.45 BASE)
+   Only static welcome-screen aesthetics. No animation or JS alterations.
+   ====================================================================== */
+/* Even, delicate double-gold framing with the original welcome silhouette. */
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card.royal-arched-welcome {
+  border-color:rgba(235,208,162,.62)!important;
+  box-shadow:
+    0 25px 65px rgba(26,14,34,.34),
+    inset 0 1px 0 rgba(255,251,245,.09),
+    inset 0 0 0 1px rgba(255,246,224,.035)!important;
+}
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card.royal-arched-welcome::before {
+  border-color:rgba(239,211,166,.27)!important;
+}
+/* Restrained symmetric botanical ornaments: static art, no repaint-heavy motion. */
+.luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card.royal-arched-welcome::after {
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  top:0!important;right:0!important;bottom:0!important;left:0!important;
+  width:auto!important;height:auto!important;
+  z-index:0!important;
+  pointer-events:none!important;
+  opacity:.62!important;
+  background:url("assets/royal-floral-corners.svg") center 12px / calc(100% - 30px) auto no-repeat!important;
+  transform:none!important;
+}
+/* Couple names remain the visual focus. */
+.luxury-cover .royal-arched-welcome .opening-couple-names {
+  font-family:"Cormorant Garamond",Georgia,serif!important;
+  font-weight:600!important;
+  font-size:clamp(45px,5.5vw,66px)!important;
+  letter-spacing:-.018em!important;
+  line-height:1.07!important;
+  gap:12px!important;
+  text-shadow:0 7px 24px rgba(18,10,24,.22)!important;
+}
+.luxury-cover .royal-arched-welcome .opening-couple-names i {
+  color:#E9C995!important;
+  font-weight:400!important;
+}
+.luxury-cover .royal-arched-welcome .opening-name-divider {
+  margin:14px auto 12px!important;
+  color:#E5C38A!important;
+}
+.luxury-cover .royal-arched-welcome .ganesha-blessing {
+  line-height:1.5!important;
+}
+.luxury-cover .royal-arched-welcome .welcome-message-premium {
+  line-height:1.69!important;
+  max-width:380px!important;
+}
+/* Preserve the small ivory CTA exactly; only retain the existing restrained hover. */
+@media(max-width:620px) {
+  .luxury-cover .opening-frame-shell > #invitationBox.stage-welcome-card.royal-arched-welcome::after {
+    background-position:center 9px!important;
+    background-size:calc(100% - 20px) auto!important;
+    opacity:.49!important;
+  }
+  .luxury-cover .royal-arched-welcome .opening-couple-names {
+    font-size:clamp(31px,8.5vw,42px)!important;
+    gap:8px!important;
+    letter-spacing:-.02em!important;
+    line-height:1.09!important;
+  }
+  .luxury-cover .royal-arched-welcome .opening-name-divider {margin:11px auto 9px!important;}
+  .luxury-cover .royal-arched-welcome .ganesha-blessing {
+    line-height:1.48!important;
+    margin-bottom:8px!important;
+  }
+  .luxury-cover .royal-arched-welcome .opening-kannada-line {
+    margin-bottom:9px!important;
+    line-height:1.52!important;
+  }
+  .luxury-cover .royal-arched-welcome .welcome-message-premium {
+    max-width:290px!important;
+    font-size:10.7px!important;
+    line-height:1.59!important;
+  }
+  .luxury-cover .royal-arched-welcome > .ganesha-opening-block {margin-bottom:17px!important;}
+  .luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal {margin-top:8px!important;}
+}
+@media(max-width:390px) {
+  .luxury-cover .royal-arched-welcome .opening-couple-names {font-size:clamp(29px,8.25vw,36px)!important;gap:6px!important;}
+  .luxury-cover .royal-arched-welcome .welcome-message-premium {max-width:265px!important;font-size:10.2px!important;}
+}
+@media(max-width:620px) and (max-height:710px) {
+  .luxury-cover .royal-arched-welcome > .ganesha-opening-block {margin-bottom:9px!important;}
+  .luxury-cover .royal-arched-welcome .opening-name-divider {margin:7px auto 6px!important;}
+  .luxury-cover .royal-arched-welcome .opening-kannada-line {margin-bottom:6px!important;}
+  .luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal {margin-top:5px!important;}
 }
