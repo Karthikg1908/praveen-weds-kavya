@@ -50,7 +50,7 @@ select{font: inherit;}
 .cover-photo{position: absolute;
   inset: -3%;
   background:
-    url("assets/hero-photo.JPG")
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
     center 44% / cover no-repeat;
   filter: saturate(.72) contrast(1.04);
   transform: scale(1.03);
@@ -219,7 +219,7 @@ select{font: inherit;}
 .hero-photo{position: absolute;
   inset: 0;
   background:
-    url("assets/hero-photo.JPG")
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
     center 45% / cover no-repeat;}
 .hero-overlay{position: absolute;
   inset: 0;
@@ -5157,11 +5157,11 @@ html body #backToTop{top:auto!important;
     width:100%;
     background:rgba(217,205,237,.42);}}
 .cover-photo{background:
-    url("assets/hero-photo.JPG") center 44% / cover no-repeat,
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp") center 44% / cover no-repeat,
     url("assets/image-fallback.webp") center / cover no-repeat,
     #2B1E35!important;}
 .hero-photo{background:
-    url("assets/hero-photo.JPG") center 45% / cover no-repeat,
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp") center 45% / cover no-repeat,
     url("assets/image-fallback.webp") center / cover no-repeat,
     #2B1E35!important;}
 .has-image-error{background:linear-gradient(145deg,#F1ECF7,#D9CDED)!important;}
@@ -5784,7 +5784,7 @@ img.image-load-error{
   position: absolute;
   inset: -3%;
   background:
-    url("assets/hero-photo.JPG")
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
     center 44% / cover no-repeat;
   filter: saturate(.72) contrast(1.04);
   transform: scale(1.03);
@@ -11902,4 +11902,269 @@ nn/* ==============================================================
   .luxury-cover .royal-arched-welcome .opening-name-divider {margin:7px auto 6px!important;}
   .luxury-cover .royal-arched-welcome .opening-kannada-line {margin-bottom:6px!important;}
   .luxury-cover .royal-arched-welcome .stage-entry-actions.stage-entry-minimal {margin-top:5px!important;}
+}
+
+
+/* =====================================================================
+   V42.6.49 — Mobile Flow & Moments Carousel
+   Keeps the established theme and 2.5-second curtain reveal intact.
+   ===================================================================== */
+/* Use the locally uploaded hero photo when present, with the original
+   image as a fallback so this ZIP remains previewable on its own. */
+.luxury-cover .cover-photo {
+  background-image:
+    url("assets/hero-photo.JPG"),
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp"),
+    url("assets/image-fallback.webp") !important;
+  background-position:center 44%,center 44%,center !important;
+  background-size:cover,cover,cover !important;
+  background-repeat:no-repeat,no-repeat,no-repeat !important;
+}
+.hero .hero-photo {
+  background-image:
+    url("assets/hero-photo.JPG"),
+    url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp"),
+    url("assets/image-fallback.webp") !important;
+  background-position:center 45%,center 45%,center !important;
+  background-size:cover,cover,cover !important;
+  background-repeat:no-repeat,no-repeat,no-repeat !important;
+}
+
+/* Compact, single-frame gallery slider. Existing lightbox classes remain intact. */
+#gallery .gallery-carousel {
+  position:relative !important;
+  isolation:isolate;
+  width:min(980px,92%) !important;
+  margin:0 auto !important;
+}
+#gallery .gallery-carousel .gallery {
+  display:block !important;
+  position:relative !important;
+  width:100% !important;
+  height:clamp(310px,43vw,470px) !important;
+  margin:0 !important;
+  padding:0 !important;
+  overflow:hidden !important;
+  border-radius:22px !important;
+  isolation:isolate;
+  background:linear-gradient(145deg,#F1ECF7,#E3D8EE) !important;
+  box-shadow:0 22px 48px rgba(54,38,68,.13),0 0 0 7px rgba(255,255,255,.64) !important;
+}
+#gallery .gallery-carousel .gallery .lightbox-item {
+  position:absolute !important;
+  inset:0 !important;
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  margin:0 !important;
+  grid-column:auto !important;
+  grid-row:auto !important;
+  border-radius:22px !important;
+  opacity:0 !important;
+  visibility:hidden !important;
+  pointer-events:none !important;
+  transform:translate3d(var(--gallery-enter-x,28px),0,0) scale(.99) !important;
+  transition:opacity .42s ease,transform .42s cubic-bezier(.2,.7,.2,1),visibility .42s ease !important;
+  cursor:pointer;
+  will-change:opacity,transform;
+}
+#gallery .gallery-carousel .gallery .lightbox-item.is-active {
+  z-index:2 !important;
+  opacity:1 !important;
+  visibility:visible !important;
+  pointer-events:auto !important;
+  transform:translate3d(0,0,0) scale(1) !important;
+}
+#gallery .gallery-carousel .gallery .lightbox-item img {
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  object-position:center !important;
+  border-radius:inherit !important;
+}
+#gallery .gallery-carousel .gallery .lightbox-item::before {display:none !important;}
+#gallery .gallery-carousel .gallery .lightbox-item::after {
+  border-radius:inherit !important;
+}
+#gallery .gallery-carousel-arrow {
+  position:absolute !important;
+  z-index:8 !important;
+  top:50% !important;
+  display:grid !important;
+  place-items:center !important;
+  width:38px !important;
+  height:38px !important;
+  min-width:38px !important;
+  min-height:38px !important;
+  padding:0 !important;
+  border-radius:50% !important;
+  border:1px solid rgba(235,208,162,.72) !important;
+  color:#FFF9F0 !important;
+  background:rgba(48,33,59,.64) !important;
+  box-shadow:0 5px 18px rgba(22,13,30,.20),inset 0 1px 0 rgba(255,255,255,.18) !important;
+  font-family:Georgia,serif !important;
+  font-size:25px !important;
+  line-height:1 !important;
+  cursor:pointer;
+  transform:translateY(-50%) !important;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:background .2s ease,border-color .2s ease,box-shadow .2s ease !important;
+}
+#gallery .gallery-carousel-prev {left:12px !important;}
+#gallery .gallery-carousel-next {right:12px !important;}
+@media(hover:hover) {
+  #gallery .gallery-carousel-arrow:hover {
+    background:rgba(67,45,80,.88) !important;
+    border-color:#EBD09E !important;
+    box-shadow:0 7px 20px rgba(22,13,30,.26),0 0 0 3px rgba(235,208,162,.10) !important;
+  }
+}
+#gallery .gallery-carousel-arrow:focus-visible,
+#gallery .gallery-carousel-dots button:focus-visible {
+  outline:2px solid #D4B475 !important;
+  outline-offset:3px !important;
+}
+#gallery .gallery-carousel-dots {
+  display:flex !important;
+  justify-content:center !important;
+  align-items:center !important;
+  gap:8px !important;
+  width:100% !important;
+  margin:19px auto 0 !important;
+  padding:0 !important;
+}
+#gallery .gallery-carousel-dots button {
+  display:block !important;
+  width:7px !important;
+  height:7px !important;
+  min-width:7px !important;
+  min-height:7px !important;
+  padding:0 !important;
+  border:0 !important;
+  border-radius:999px !important;
+  background:rgba(128,103,160,.34) !important;
+  cursor:pointer;
+  transition:width .22s ease,background .22s ease,box-shadow .22s ease !important;
+}
+#gallery .gallery-carousel-dots button[aria-pressed="true"] {
+  width:22px !important;
+  background:#B99A63 !important;
+  box-shadow:0 0 0 3px rgba(185,154,99,.10) !important;
+}
+@media(max-width:768px) {
+  /* Shorten the first hero section so the next section is reached sooner. */
+  .hero {min-height:88svh !important; min-height:88vh !important;}
+  #couple.section,#video-invite.section,#gallery.section {
+    padding-top:46px !important;
+    padding-bottom:46px !important;
+  }
+  #couple .section-head,#video-invite .section-head,#gallery .section-head {
+    margin-bottom:23px !important;
+  }
+  #couple .couple-grid {
+    width:min(92%,500px) !important;
+    gap:13px !important;
+    margin:18px auto 16px !important;
+    grid-template-columns:1fr !important;
+  }
+  #couple .couple-card {
+    min-height:0 !important;
+    padding:15px 15px 19px !important;
+    overflow:hidden !important;
+  }
+  #couple .couple-card .portrait-wrap {
+    width:min(100%,270px) !important;
+    height:clamp(210px,72vw,280px) !important;
+    max-height:280px !important;
+    margin:0 auto !important;
+  }
+  #couple .couple-card .portrait-wrap img {
+    width:100% !important;
+    height:100% !important;
+    object-fit:cover !important;
+  }
+  #couple .couple-card .role {margin-top:17px !important;}
+  #couple .couple-card h3 {
+    margin-top:5px !important;
+    font-size:clamp(31px,7.8vw,39px) !important;
+  }
+  #couple .couple-card .family {
+    margin-top:5px !important;
+    font-size:13px !important;
+    line-height:1.5 !important;
+  }
+  #couple .editorial-couple-ornament {
+    order:2 !important;
+    min-height:70px !important;
+    flex-direction:row !important;
+    flex-wrap:nowrap !important;
+    justify-content:center !important;
+    align-items:center !important;
+    gap:10px !important;
+    margin:0 auto !important;
+    padding:5px 0 !important;
+  }
+  #couple .editorial-couple-ornament .editorial-vertical-line {display:none !important;}
+  #couple .editorial-couple-ornament .symbol-ring {
+    flex:0 0 46px !important;
+    width:46px !important;
+    height:46px !important;
+  }
+  #couple .editorial-couple-ornament .symbol-ring::after {
+    bottom:-19px !important;
+    font-size:7px !important;
+    letter-spacing:1.4px !important;
+  }
+  #couple .editorial-couple-ornament p,
+  #couple .editorial-couple-ornament p:first-of-type {
+    margin:0 !important;
+    font-size:10px !important;
+    line-height:1.25 !important;
+    white-space:nowrap;
+  }
+  #couple .editorial-couple-ornament strong {font-size:12px !important;white-space:nowrap;}
+  #couple .couple-kannada-blessing {margin:14px auto 0 !important;}
+  #gallery .gallery-carousel {width:100% !important;}
+  #gallery .gallery-carousel .gallery {height:clamp(230px,66vw,330px) !important;border-radius:18px !important;}
+  #gallery .gallery-carousel .gallery .lightbox-item {border-radius:18px !important;}
+  #gallery .gallery-carousel .gallery .lightbox-item img {border-radius:18px !important;}
+  #gallery .gallery-carousel-arrow {
+    width:34px !important;height:34px !important;min-width:34px !important;min-height:34px !important;
+    font-size:22px !important;
+  }
+  #gallery .gallery-carousel-prev {left:9px !important;}
+  #gallery .gallery-carousel-next {right:9px !important;}
+  #gallery .gallery-carousel-dots {margin-top:15px !important;}
+}
+@media(max-width:390px) {
+  #couple .couple-card {padding:13px 13px 17px !important;}
+  #couple .couple-card .portrait-wrap {width:min(100%,250px) !important;height:clamp(205px,68vw,260px) !important;}
+  #couple .editorial-couple-ornament {gap:7px !important;}
+  #couple .editorial-couple-ornament p {font-size:9px !important;}
+  #couple .editorial-couple-ornament strong {font-size:11px !important;}
+}
+@media(prefers-reduced-motion:reduce) {
+  #gallery .gallery-carousel .gallery .lightbox-item,
+  #gallery .gallery-carousel-dots button,
+  #gallery .gallery-carousel-arrow {transition:none !important;}
+}
+
+
+/* V42.6.49 mobile-flow final adjustment: reduce first-screen scroll distance and portraits. */
+@media(max-width:768px) {
+  .hero {min-height:78vh !important; min-height:78svh !important;}
+  #couple .couple-card .portrait-wrap {
+    width:min(100%,250px) !important;
+    height:clamp(190px,58vw,240px) !important;
+    max-height:240px !important;
+  }
+}
+@media(max-width:390px) {
+  #couple .couple-card .portrait-wrap {
+    width:min(100%,230px) !important;
+    height:clamp(180px,58vw,220px) !important;
+    max-height:220px !important;
+  }
 }
