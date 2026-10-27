@@ -11977,3 +11977,142 @@ min-height: 46px !important;
 transition: none !important;
 }
 }
+
+
+/* V42.6.51 — tighter section rhythm, “Praveen weds Kavya”, centered P ♥ K. */
+/* Reduce the oversized divider bands between major sections. */
+.signature-premium .luxury-section-separator{
+  height:32px!important;
+  min-height:0!important;
+  padding:0!important;
+  margin:0 auto!important;
+  box-sizing:border-box!important;
+}
+/* Pull the four headings closer to the content above them without changing cards. */
+.signature-premium main #video-invite.section,
+.signature-premium main #events.section,
+.signature-premium main #countdown.section,
+.signature-premium main #gallery.section{
+  padding-bottom:48px!important;
+}
+.signature-premium main #events.section,
+.signature-premium main #countdown.section,
+.signature-premium main #gallery.section,
+.signature-premium main #venue.section{
+  padding-top:48px!important;
+}
+/* Keep “weds” refined and legible between the two larger names. */
+.signature-premium .hero-names .hero-name-weds{
+  display:inline-block!important;
+  align-self:center!important;
+  flex:0 0 auto!important;
+  margin:0!important;
+  padding:0 2px!important;
+  color:#EBD7AA!important;
+  font-family:var(--serif,Georgia,serif)!important;
+  font-size:clamp(12px,1.65vw,19px)!important;
+  font-weight:500!important;
+  font-style:italic!important;
+  line-height:1!important;
+  letter-spacing:.08em!important;
+  text-transform:lowercase!important;
+  white-space:nowrap!important;
+  text-shadow:0 0 14px rgba(235,215,170,.16)!important;
+  opacity:0;
+  transform:translateY(5px);
+}
+body.opening-complete.signature-premium .hero-name-weds{
+  animation:v42651WedsIn .7s .62s cubic-bezier(.2,.7,.2,1) forwards;
+}
+@keyframes v42651WedsIn{to{opacity:1;transform:translateY(0);}}
+/* The heart is red on all screen sizes; mobile adds a restrained heartbeat. */
+.signature-premium #siteHeader.mini-site-header .site-logo .site-logo-heart{
+  color:#F0445D!important;
+  display:inline-block!important;
+  line-height:1!important;
+  letter-spacing:0!important;
+  text-shadow:0 0 8px rgba(240,68,93,.22)!important;
+}
+/* Center the mobile P ♥ K mark within the screen-width header. */
+@media(max-width:768px){
+  .signature-premium #siteHeader.mini-site-header{
+    position:fixed!important;
+  }
+  .signature-premium #siteHeader.mini-site-header .site-logo{
+    position:absolute!important;
+    left:50%!important;
+    top:50%!important;
+    transform:translate(-50%,-50%)!important;
+    z-index:2!important;
+    display:inline-flex!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:3px!important;
+    width:max-content!important;
+    max-width:calc(100% - 100px)!important;
+    margin:0!important;
+    white-space:nowrap!important;
+    text-align:center!important;
+  }
+  .signature-premium #siteHeader.mini-site-header .site-logo .site-logo-heart{
+    display:inline-block!important;
+    margin:0 2px!important;
+    color:#F0445D!important;
+    font-size:16px!important;
+    line-height:1!important;
+    letter-spacing:0!important;
+    text-shadow:0 0 9px rgba(240,68,93,.28)!important;
+    transform-origin:center!important;
+    animation:v42651HeartBeat 1.55s ease-in-out infinite!important;
+  }
+  .signature-premium #siteHeader.mini-site-header .menu-btn{
+    position:relative!important;
+    z-index:3!important;
+  }
+  .signature-premium main #video-invite.section,
+  .signature-premium main #events.section,
+  .signature-premium main #countdown.section,
+  .signature-premium main #gallery.section{
+    padding-bottom:34px!important;
+  }
+  .signature-premium main #events.section,
+  .signature-premium main #countdown.section,
+  .signature-premium main #gallery.section,
+  .signature-premium main #venue.section{
+    padding-top:30px!important;
+  }
+  .signature-premium .luxury-section-separator{
+    height:23px!important;
+  }
+  .signature-premium .hero-names{
+    gap:clamp(5px,1.7vw,10px)!important;
+    padding-inline:2px!important;
+  }
+  .signature-premium .hero-names .hero-name-weds{
+    font-size:clamp(11px,3.1vw,15px)!important;
+    letter-spacing:.04em!important;
+    padding:0!important;
+  }
+}
+@keyframes v42651HeartBeat{
+  0%,100%{transform:scale(1)}
+  10%{transform:scale(1.18)}
+  20%{transform:scale(1)}
+  32%{transform:scale(1.13)}
+  44%{transform:scale(1)}
+}
+@media(max-width:390px){
+  .signature-premium main #video-invite.section,
+  .signature-premium main #events.section,
+  .signature-premium main #countdown.section,
+  .signature-premium main #gallery.section{padding-bottom:28px!important;}
+  .signature-premium main #events.section,
+  .signature-premium main #countdown.section,
+  .signature-premium main #gallery.section,
+  .signature-premium main #venue.section{padding-top:26px!important;}
+  .signature-premium .luxury-section-separator{height:20px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .signature-premium .hero-name-weds{opacity:1!important;transform:none!important;animation:none!important;}
+  .signature-premium #siteHeader.mini-site-header .site-logo .site-logo-heart{animation:none!important;}
+}
