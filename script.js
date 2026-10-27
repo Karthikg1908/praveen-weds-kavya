@@ -76,6 +76,9 @@ let musicEnabled = true;
 let musicUnlocked = false;
 let videoSectionActive = false;
 let videoPlaybackCompleted = false;
+let videoVisibilityRatio = 0;
+let videoAutoplaySuppressed = false;
+let videoAutoplayRequestPending = false;
 let musicFadeFrame = 0;
 let musicFadeToken = 0;
 function refreshMusicButton() {
@@ -227,6 +230,14 @@ function setVideoFocus(active) {
 videoInviteSection?.classList.toggle("is-video-playing", Boolean(active));
 }
 if (weddingVideo) {
+// Mobile Safari/Chrome generally allow viewport-triggered autoplay only when
+// the video is muted and plays inline from the moment the element is created.
+weddingVideo.muted = true;
+weddingVideo.defaultMuted = true;
+weddingVideo.playsInline = true;
+weddingVideo.setAttribute("muted", "");
+weddingVideo.setAttribute("playsinline", "");
+weddingVideo.setAttribute("webkit-playsinline", "");
 weddingVideo.addEventListener("play", () => {
 videoPlaybackCompleted = false;
 setVideoFocus(true);
@@ -239,8 +250,54 @@ syncBackgroundMusic();
 });
 weddingVideo.addEventListener("pause", () => {
 setVideoFocus(false);
+// Respect a deliberate pause while the video is in view. A visibility
+// pause or rejected play request must not count as a deliberate pause.
+if (videoVisibilityRatio >= 0.9 && !weddingVideo.ended && !videoAutoplayRequestPending) {
+videoAutoplaySuppressed = true;
+}
 syncBackgroundMusic();
 });
+// If the phone finishes buffering after becoming visible, try again then.
+weddingVideo.addEventListener("canplay", () => {
+if (videoVisibilityRatio >= 0.9 && weddingVideo.paused && !weddingVideo.ended && !videoAutoplaySuppressed) {
+tryAutoPlayWeddingVideo();
+}
+});
+}
+// Start muted when 90% of the video frame is visible. Muted-first is essential
+// on mobile, where audible autoplay is commonly denied even after a retry.
+// The native controls remain enabled so guests can unmute or pause manually.
+// Pause once the frame fully leaves the viewport; resume when it returns.
+async function tryAutoPlayWeddingVideo() {
+if (!weddingVideo || videoAutoplayRequestPending || videoAutoplaySuppressed || weddingVideo.ended || videoVisibilityRatio < 0.9) return;
+videoAutoplayRequestPending = true;
+try {
+weddingVideo.muted = true;
+weddingVideo.defaultMuted = true;
+const playRequest = weddingVideo.play();
+if (playRequest && typeof playRequest.then === "function") await playRequest;
+} catch (_) {
+// Some devices (for example, when Low Power Mode blocks autoplay) can still
+// deny playback. Keep native controls available for a reliable manual start.
+} finally {
+videoAutoplayRequestPending = false;
+}
+}
+if (weddingVideo && "IntersectionObserver" in window) {
+const weddingVideoVisibilityObserver = new IntersectionObserver(entries => {
+const entry = entries[0];
+videoVisibilityRatio = entry.intersectionRatio;
+const sufficientlyVisible = entry.isIntersecting && entry.intersectionRatio >= 0.9;
+if (sufficientlyVisible) {
+if (weddingVideo.paused && !weddingVideo.ended && !videoAutoplaySuppressed) {
+tryAutoPlayWeddingVideo();
+}
+} else if (!entry.isIntersecting || entry.intersectionRatio <= 0.01) {
+if (!weddingVideo.paused) weddingVideo.pause();
+videoAutoplaySuppressed = false;
+}
+}, { threshold: [0, 0.5, 0.75, 0.9] });
+weddingVideoVisibilityObserver.observe(weddingVideo);
 }
 document.addEventListener("visibilitychange", syncBackgroundMusic);
 // -------------------------------------------------------

@@ -12116,3 +12116,21 @@ body.opening-complete.signature-premium .hero-name-weds{
   .signature-premium .hero-name-weds{opacity:1!important;transform:none!important;animation:none!important;}
   .signature-premium #siteHeader.mini-site-header .site-logo .site-logo-heart{animation:none!important;}
 }
+
+
+/* V42.6.52 — View Invitation label fits the existing petite CTA. */
+.luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-enter-label {
+  font-size: 10px !important;
+  letter-spacing: .08em !important;
+}
+@media (max-width: 620px) {
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal #openInvitation.stage-enter-button {
+    gap: 8px !important;
+    padding-inline: 12px !important;
+  }
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-entry-flourish,
+  .luxury-cover .royal-arched-welcome .stage-entry-minimal .stage-entry-arrow {
+    width: 12px !important;
+    flex-basis: 12px !important;
+  }
+}
