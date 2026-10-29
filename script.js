@@ -691,6 +691,30 @@ event.preventDefault();
 moveGallerySlide(1);
 }
 });
+/* Pause the carousel briefly while a guest touches, clicks, or navigates it. */
+const galleryInteractionRegion = qs("#gallery") || galleryCarousel;
+let galleryInteractionResumeTimer = 0;
+const pauseGalleryForInteraction = () => {
+pauseGalleryAutoplay("interaction");
+if (galleryInteractionResumeTimer) window.clearTimeout(galleryInteractionResumeTimer);
+galleryInteractionResumeTimer = 0;
+};
+const resumeGalleryAfterInteraction = () => {
+if (galleryInteractionResumeTimer) window.clearTimeout(galleryInteractionResumeTimer);
+galleryInteractionResumeTimer = window.setTimeout(() => {
+galleryInteractionResumeTimer = 0;
+resumeGalleryAutoplay("interaction");
+}, 1100);
+};
+galleryInteractionRegion?.addEventListener("pointerdown", pauseGalleryForInteraction, { passive: true });
+galleryInteractionRegion?.addEventListener("pointerup", resumeGalleryAfterInteraction, { passive: true });
+galleryInteractionRegion?.addEventListener("pointercancel", resumeGalleryAfterInteraction, { passive: true });
+galleryInteractionRegion?.addEventListener("keydown", event => {
+if (["ArrowLeft", "ArrowRight", "Enter", " "].includes(event.key)) {
+pauseGalleryForInteraction();
+resumeGalleryAfterInteraction();
+}
+});
 if ("IntersectionObserver" in window) {
 const galleryVisibilityObserver = new IntersectionObserver(entries => {
 const visible = Boolean(entries[0]?.isIntersecting);
@@ -925,9 +949,17 @@ img.classList.add("image-load-error");
 const parent = img.parentElement;
 if (parent) parent.classList.add("has-image-error");
 const fallback = img.dataset.fallbackSrc;
-if (fallback && img.src !== new URL(fallback, document.baseURI).href) {
+const fallbackUrl = fallback ? new URL(fallback, document.baseURI).href : "";
+const localFallbackUrl = new URL("assets/image-fallback.webp", document.baseURI).href;
 img.removeAttribute("data-remote-image");
-img.src = fallback;
+if (fallbackUrl && img.src !== fallbackUrl) {
+  // Try the intended/sample photo first; if that is offline too, use the local fallback.
+  img.addEventListener("error", () => {
+    if (img.src !== localFallbackUrl) img.src = localFallbackUrl;
+  }, { once: true });
+  img.src = fallbackUrl;
+} else if (img.src !== localFallbackUrl) {
+  img.src = localFallbackUrl;
 }
 }, { once: true });
 if (img.complete && img.naturalWidth > 0) markLoaded();

@@ -49,7 +49,7 @@ pointer-events: none;}
 .cover-photo{position: absolute;
 inset: -3%;
 background:
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
+url("assets/hero-photo.JPG")
 center 44% / cover no-repeat;
 filter: saturate(.72) contrast(1.04);
 transform: scale(1.03);
@@ -218,7 +218,7 @@ color: white;}
 .hero-photo{position: absolute;
 inset: 0;
 background:
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
+url("assets/hero-photo.JPG")
 center 45% / cover no-repeat;}
 .hero-overlay{position: absolute;
 inset: 0;
@@ -5135,11 +5135,11 @@ color:rgba(241,236,247,.56);}
 width:100%;
 background:rgba(217,205,237,.42);}}
 .cover-photo{background:
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp") center 44% / cover no-repeat,
+url("assets/hero-photo.JPG") center 44% / cover no-repeat,
 url("assets/image-fallback.webp") center / cover no-repeat,
 #2B1E35!important;}
 .hero-photo{background:
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp") center 45% / cover no-repeat,
+url("assets/hero-photo.JPG") center 45% / cover no-repeat,
 url("assets/image-fallback.webp") center / cover no-repeat,
 #2B1E35!important;}
 .has-image-error{background:linear-gradient(145deg,#F1ECF7,#D9CDED)!important;}
@@ -5666,7 +5666,7 @@ pointer-events: none;
 position: absolute;
 inset: -3%;
 background:
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp")
+url("assets/hero-photo.JPG")
 center 44% / cover no-repeat;
 filter: saturate(.72) contrast(1.04);
 transform: scale(1.03);
@@ -11574,7 +11574,7 @@ line-height:1.59!important;
 .luxury-cover .cover-photo {
 background-image:
 url("assets/hero-photo.JPG"),
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp"),
+url("assets/hero-photo.JPG"),
 url("assets/image-fallback.webp") !important;
 background-position:center 44%,center 44%,center !important;
 background-size:cover,cover,cover !important;
@@ -11583,7 +11583,7 @@ background-repeat:no-repeat,no-repeat,no-repeat !important;
 .hero .hero-photo {
 background-image:
 url("assets/hero-photo.JPG"),
-url("https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1800&q=84&fm=webp"),
+url("assets/hero-photo.JPG"),
 url("assets/image-fallback.webp") !important;
 background-position:center 45%,center 45%,center !important;
 background-size:cover,cover,cover !important;
@@ -12133,4 +12133,185 @@ body.opening-complete.signature-premium .hero-name-weds{
     width: 12px !important;
     flex-basis: 12px !important;
   }
+}
+
+
+/* V42.6.55 — Final visual and performance polish. Existing reveal timing is untouched. */
+
+/* Use the uploaded hero photo without loading a remote copy beneath it. */
+.luxury-cover .cover-photo{
+  background-image:url("assets/hero-photo.JPG"),url("assets/image-fallback.webp")!important;
+  background-position:center 44%,center!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat,no-repeat!important;
+}
+.signature-premium .hero .hero-photo{
+  background-image:url("assets/hero-photo.JPG"),url("assets/image-fallback.webp")!important;
+  background-position:center 45%,center!important;
+  background-size:cover,cover!important;
+  background-repeat:no-repeat,no-repeat!important;
+}
+/* Slightly clearer hero text and more balanced name spacing. */
+.signature-premium .hero-overlay{
+  background:
+    linear-gradient(180deg,rgba(31,20,40,.43) 0%,rgba(38,25,48,.38) 36%,rgba(27,17,36,.66) 100%),
+    radial-gradient(circle at 50% 44%,transparent 24%,rgba(28,18,37,.25) 78%)!important;
+}
+.signature-premium .hero-names{
+  margin:clamp(8px,1.8vh,16px) auto 12px!important;
+  column-gap:clamp(6px,1.4vw,12px)!important;
+  row-gap:4px!important;
+}
+.signature-premium .hero-copy{
+  max-width:min(620px,90%)!important;
+  color:rgba(255,252,255,.94)!important;
+  text-shadow:0 2px 16px rgba(20,11,28,.46)!important;
+}
+.signature-premium .hero-together-line{
+  color:rgba(250,243,253,.90)!important;
+  text-shadow:0 2px 13px rgba(20,11,28,.40)!important;
+}
+
+/* Couple portraits stay compact and consistently cropped on phones. */
+.signature-premium #couple .couple-card .portrait-wrap{
+  overflow:hidden!important;
+  border-radius:18px!important;
+}
+.signature-premium #couple .couple-card .portrait-wrap img{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center 38%!important;
+}
+@media(max-width:620px){
+  .signature-premium #couple .couple-card .portrait-wrap{
+    width:min(220px,68vw)!important;
+    height:clamp(185px,55vw,215px)!important;
+    max-height:215px!important;
+  }
+}
+@media(max-width:390px){
+  .signature-premium #couple .couple-card .portrait-wrap{
+    width:min(210px,70vw)!important;
+    height:190px!important;
+    max-height:190px!important;
+  }
+}
+
+/* Video invitation: a quiet champagne frame, true 16:9 crop, and restrained play cue. */
+.signature-premium .video-invite-card{
+  width:min(1060px,92%)!important;
+  padding:clamp(7px,1.2vw,11px)!important;
+  border:1px solid rgba(185,154,99,.42)!important;
+  border-radius:26px!important;
+  background:linear-gradient(145deg,rgba(255,255,255,.97),rgba(243,237,249,.93))!important;
+  box-shadow:0 22px 56px rgba(47,31,59,.13),inset 0 1px 0 rgba(255,255,255,.9)!important;
+}
+.signature-premium .video-frame-shell{
+  position:relative!important;
+  overflow:hidden!important;
+  aspect-ratio:16/9!important;
+  padding:5px!important;
+  border:1px solid rgba(185,154,99,.68)!important;
+  border-radius:18px!important;
+  background:linear-gradient(135deg,#e5d2a6 0%,#fff9ee 45%,#c9b17d 100%)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.62),0 4px 16px rgba(56,38,69,.08)!important;
+}
+.signature-premium .wedding-video{
+  display:block!important;
+  width:100%!important;
+  height:100%!important;
+  min-height:0!important;
+  aspect-ratio:16/9!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  border-radius:12px!important;
+  background:#34253c!important;
+}
+.signature-premium .video-play-indicator{
+  position:absolute!important;
+  left:50%!important;
+  top:50%!important;
+  z-index:5!important;
+  display:grid!important;
+  place-items:center!important;
+  width:52px!important;
+  height:52px!important;
+  border:1px solid rgba(239,215,169,.86)!important;
+  border-radius:50%!important;
+  background:rgba(47,32,58,.76)!important;
+  box-shadow:0 7px 22px rgba(20,12,27,.22),inset 0 1px 0 rgba(255,255,255,.18)!important;
+  transform:translate(-50%,-50%)!important;
+  opacity:.9!important;
+  pointer-events:none!important;
+  transition:opacity .24s ease,transform .24s ease,visibility .24s ease!important;
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+.signature-premium .video-play-indicator>span{
+  display:block!important;
+  width:0!important;
+  height:0!important;
+  margin-left:4px!important;
+  border-top:8px solid transparent!important;
+  border-bottom:8px solid transparent!important;
+  border-left:12px solid #f1dba9!important;
+}
+.signature-premium .video-invite-section.is-video-playing .video-play-indicator{
+  opacity:0!important;
+  visibility:hidden!important;
+  transform:translate(-50%,-50%) scale(.94)!important;
+}
+@media(max-width:620px){
+  .signature-premium .video-invite-card{width:100%!important;padding:6px!important;border-radius:20px!important;}
+  .signature-premium .video-frame-shell{padding:4px!important;border-radius:15px!important;}
+  .signature-premium .wedding-video{border-radius:10px!important;}
+  .signature-premium .video-play-indicator{width:44px!important;height:44px!important;}
+  .signature-premium .video-play-indicator>span{border-top-width:6px!important;border-bottom-width:6px!important;border-left-width:10px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  .signature-premium .video-play-indicator{transition:none!important;}
+}
+
+/* Consistent slide sizing with compact visual dots and comfortable arrow hit areas. */
+#gallery .gallery-carousel{width:min(920px,92%)!important;}
+#gallery .gallery-carousel .gallery{
+  aspect-ratio:16/10!important;
+  height:clamp(260px,48vw,470px)!important;
+  max-height:470px!important;
+}
+#gallery .gallery-carousel .gallery .lightbox-item img{
+  object-fit:cover!important;
+  object-position:center 44%!important;
+}
+#gallery .gallery-carousel-arrow{
+  width:44px!important;height:44px!important;
+  min-width:44px!important;min-height:44px!important;
+}
+#gallery .gallery-carousel-dots{gap:2px!important;margin-top:14px!important;}
+#gallery .gallery-carousel-dots button{
+  display:grid!important;place-items:center!important;
+  flex:0 0 28px!important;width:28px!important;height:28px!important;
+  min-width:28px!important;min-height:28px!important;
+  padding:0!important;border:0!important;border-radius:50%!important;
+  background:transparent!important;box-shadow:none!important;
+}
+#gallery .gallery-carousel-dots button::before{
+  content:"";display:block;width:7px;height:7px;border-radius:99px;
+  background:rgba(128,103,160,.38);
+  transition:width .2s ease,background .2s ease,box-shadow .2s ease;
+}
+#gallery .gallery-carousel-dots button[aria-pressed="true"]::before{
+  width:19px;background:#B99A63;box-shadow:0 0 0 3px rgba(185,154,99,.10);
+}
+@media(max-width:768px){
+  #gallery .gallery-carousel{width:100%!important;}
+  #gallery .gallery-carousel .gallery{height:clamp(230px,64vw,340px)!important;aspect-ratio:unset!important;}
+  #gallery .gallery-carousel-arrow{width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important;}
+}
+@media(prefers-reduced-motion:reduce){
+  #gallery .gallery-carousel .gallery .lightbox-item,
+  #gallery .gallery-carousel-arrow,
+  #gallery .gallery-carousel-dots button::before{transition:none!important;}
 }
