@@ -439,9 +439,24 @@ safetyTimer = window.setTimeout(done, 2900);
 }
 if (openInvitation) {
 openInvitation.addEventListener("click", () => {
+// A guest-initiated opening can also unlock background audio.
 unlockAndStartBackgroundMusic();
 enterWedding();
 });
+
+// Automatically reveal the invitation 1.5 seconds after the full page
+// (including its assets) has finished loading. The click handler remains
+// available, and enterWedding() prevents a duplicate opening.
+const scheduleAutomaticOpening = () => {
+  window.setTimeout(() => {
+    if (!isOpening) enterWedding();
+  }, 1500);
+};
+if (document.readyState === "complete") {
+  scheduleAutomaticOpening();
+} else {
+  window.addEventListener("load", scheduleAutomaticOpening, { once: true });
+}
 } else {
 document.body.classList.remove("no-scroll");
 document.body.classList.add("opening-complete");
