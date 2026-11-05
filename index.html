@@ -433,7 +433,25 @@
 <circle cx="17.4" cy="6.7" fill="url(#igGradientFooter)" r="1.15" stroke="none"></circle>
 </svg></a></div></div></div></footer>
 <button aria-label="Back to top" class="back-to-top" id="backToTop" type="button">↑</button>
-<audio aria-hidden="true" id="backgroundMusic" loop="" preload="metadata"><source src="background-music.mp3" type="audio/mpeg"/></audio><button aria-label="Mute background music" aria-pressed="false" class="music-toggle" id="musicToggle" title="Background music" type="button"><span aria-hidden="true" class="music-toggle-rings"><i></i><i></i></span><span aria-hidden="true" class="music-toggle-icon"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<!-- V42.6.56 — Compact music volume controller -->
+<audio aria-hidden="true" id="backgroundMusic" loop="" preload="metadata"><source src="background-music.mp3" type="audio/mpeg"/></audio>
+<div aria-label="Background music controls" class="music-panel" id="musicPanel" role="group" hidden>
+  <div class="music-panel-heading">
+    <div class="music-panel-heading-copy">
+      <span class="music-panel-eyebrow">AMBIENCE</span>
+      <strong>Background music</strong>
+    </div>
+    <output class="music-volume-value" id="musicVolumeValue" for="musicVolume">40%</output>
+  </div>
+  <label class="music-volume-label" for="musicVolume">Volume</label>
+  <input aria-label="Background music volume" class="music-volume-slider" id="musicVolume" max="100" min="0" step="1" type="range" value="40" />
+  <div aria-hidden="true" class="music-volume-scale"><span>0</span><span>100</span></div>
+  <div class="music-panel-actions">
+    <button aria-pressed="true" class="music-panel-action music-panel-play" id="musicPlayToggle" type="button">Pause music</button>
+    <button aria-pressed="false" class="music-panel-action music-panel-mute" id="musicMuteToggle" type="button">Mute</button>
+  </div>
+</div>
+<button aria-label="Open music controls" aria-controls="musicPanel" aria-expanded="false" class="music-toggle" id="musicToggle" title="Open music controls" type="button"><span aria-hidden="true" class="music-toggle-rings"><i></i><i></i></span><span aria-hidden="true" class="music-toggle-icon"><svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
 <path d="M9 18V5.8l9-2.1v11.1a3.5 3.5 0 1 1-1.8-3V7.1l-5.4 1.3V18A3.5 3.5 0 1 1 9 18Z"></path>
 </svg></span><span aria-hidden="true" class="music-equalizer"><i></i><i></i><i></i></span></button><script defer="" src="script.js"></script>
 </body>

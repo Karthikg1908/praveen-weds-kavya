@@ -13,6 +13,11 @@ const petalLayer = qs("#petalLayer");
 const pageLoader = qs("#pageLoader");
 const backgroundMusic = qs("#backgroundMusic");
 const musicToggle = qs("#musicToggle");
+const musicPanel = qs("#musicPanel");
+const musicVolumeSlider = qs("#musicVolume");
+const musicVolumeValue = qs("#musicVolumeValue");
+const musicPlayToggle = qs("#musicPlayToggle");
+const musicMuteToggle = qs("#musicMuteToggle");
 const videoInviteSection = qs("#video-invite");
 const weddingVideo = qs(".wedding-video");
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -66,13 +71,15 @@ requestAnimationFrame(dismissPageLoader);
 });
 });
 // -------------------------------------------------------
-// BACKGROUND MUSIC
-// Starts from the seal click, fades around Video Invitation,
+// BACKGROUND MUSIC + COMPACT VOLUME CONTROLLER
+// Starts from the invitation reveal, fades around Video Invitation,
 // and resumes after the video ends or the guest scrolls away.
 // -------------------------------------------------------
-const MUSIC_VOLUME = 0.28;
+const MUSIC_DEFAULT_VOLUME = 0.40;
 const MUSIC_FADE_MS = prefersReducedMotion ? 0 : 720;
+let musicVolume = MUSIC_DEFAULT_VOLUME;
 let musicEnabled = true;
+let musicMuted = false;
 let musicUnlocked = false;
 let videoSectionActive = false;
 let videoPlaybackCompleted = false;
@@ -81,23 +88,45 @@ let videoAutoplaySuppressed = false;
 let videoAutoplayRequestPending = false;
 let musicFadeFrame = 0;
 let musicFadeToken = 0;
+
+function getMusicTargetVolume() {
+return musicEnabled && !musicMuted ? musicVolume : 0;
+}
+
+function setMusicPanelOpen(open) {
+if (!musicPanel || !musicToggle) return;
+musicPanel.hidden = !open;
+musicToggle.setAttribute("aria-expanded", String(open));
+musicToggle.setAttribute("aria-label", open ? "Close music controls" : "Open music controls");
+musicToggle.title = open ? "Close music controls" : "Open music controls";
+}
+
 function refreshMusicButton() {
 if (!musicToggle || !backgroundMusic) return;
-const playing = !backgroundMusic.paused && !backgroundMusic.ended;
+const playing = !backgroundMusic.paused && !backgroundMusic.ended && musicEnabled && !musicMuted;
+const muted = musicMuted || musicVolume <= 0;
 musicToggle.classList.toggle("is-playing", playing);
-musicToggle.classList.toggle("is-muted", !musicEnabled);
-musicToggle.setAttribute("aria-pressed", String(!musicEnabled));
-musicToggle.setAttribute(
-"aria-label",
-musicEnabled ? "Mute background music" : "Play background music"
-);
-musicToggle.title = musicEnabled ? "Mute background music" : "Play background music";
+musicToggle.classList.toggle("is-muted", muted);
+if (musicVolumeSlider && Number(musicVolumeSlider.value) !== Math.round(musicVolume * 100)) {
+  musicVolumeSlider.value = String(Math.round(musicVolume * 100));
 }
+if (musicVolumeValue) musicVolumeValue.textContent = `${Math.round(musicVolume * 100)}%`;
+if (musicPlayToggle) {
+  musicPlayToggle.textContent = musicEnabled ? "Pause music" : "Play music";
+  musicPlayToggle.setAttribute("aria-pressed", String(musicEnabled));
+}
+if (musicMuteToggle) {
+  musicMuteToggle.textContent = musicMuted ? "Unmute" : "Mute";
+  musicMuteToggle.setAttribute("aria-pressed", String(musicMuted));
+}
+}
+
 function cancelMusicFade() {
 musicFadeToken += 1;
 if (musicFadeFrame) cancelAnimationFrame(musicFadeFrame);
 musicFadeFrame = 0;
 }
+
 function fadeMusicTo(targetVolume, duration = MUSIC_FADE_MS, onComplete) {
 if (!backgroundMusic) return;
 cancelMusicFade();
@@ -127,8 +156,9 @@ refreshMusicButton();
 };
 musicFadeFrame = requestAnimationFrame(step);
 }
+
 function shouldBackgroundMusicPlay() {
-if (!backgroundMusic || !musicUnlocked || !musicEnabled || document.hidden) {
+if (!backgroundMusic || !musicUnlocked || !musicEnabled || musicMuted || document.hidden) {
 return false;
 }
 const videoCurrentlyPlaying =
@@ -139,6 +169,7 @@ if (videoCurrentlyPlaying) return false;
 if (videoSectionActive && !videoPlaybackCompleted) return false;
 return true;
 }
+
 function fadeOutAndPauseMusic() {
 if (!backgroundMusic || backgroundMusic.paused) {
 refreshMusicButton();
@@ -150,6 +181,7 @@ backgroundMusic.volume = 0;
 refreshMusicButton();
 });
 }
+
 function fadeInBackgroundMusic() {
 if (!backgroundMusic || !shouldBackgroundMusicPlay()) return;
 cancelMusicFade();
@@ -157,12 +189,13 @@ backgroundMusic.volume = 0;
 const playPromise = backgroundMusic.play();
 if (playPromise && typeof playPromise.then === "function") {
 playPromise
-.then(() => fadeMusicTo(MUSIC_VOLUME))
+.then(() => fadeMusicTo(getMusicTargetVolume()))
 .catch(refreshMusicButton);
 } else {
-fadeMusicTo(MUSIC_VOLUME);
+fadeMusicTo(getMusicTargetVolume());
 }
 }
+
 function syncBackgroundMusic() {
 if (!backgroundMusic) return;
 if (!shouldBackgroundMusicPlay()) {
@@ -172,42 +205,89 @@ return;
 if (backgroundMusic.paused) {
 fadeInBackgroundMusic();
 } else {
-fadeMusicTo(MUSIC_VOLUME);
+fadeMusicTo(getMusicTargetVolume());
 }
 }
+
 function unlockAndStartBackgroundMusic() {
 if (!backgroundMusic) return;
 musicUnlocked = true;
 musicEnabled = true;
+musicMuted = false;
 cancelMusicFade();
-backgroundMusic.volume = prefersReducedMotion ? MUSIC_VOLUME : 0.06;
+backgroundMusic.volume = prefersReducedMotion ? getMusicTargetVolume() : Math.min(0.06, getMusicTargetVolume());
 const playPromise = backgroundMusic.play();
 if (playPromise && typeof playPromise.then === "function") {
 playPromise
 .then(() => {
 refreshMusicButton();
-fadeMusicTo(MUSIC_VOLUME, prefersReducedMotion ? 0 : 700);
+fadeMusicTo(getMusicTargetVolume(), prefersReducedMotion ? 0 : 700);
 })
 .catch(refreshMusicButton);
 } else {
 refreshMusicButton();
-fadeMusicTo(MUSIC_VOLUME, prefersReducedMotion ? 0 : 700);
+fadeMusicTo(getMusicTargetVolume(), prefersReducedMotion ? 0 : 700);
 }
 }
-if (musicToggle && backgroundMusic) {
-musicToggle.addEventListener("click", () => {
-musicEnabled = !musicEnabled;
-if (musicEnabled) {
-musicUnlocked = true;
-syncBackgroundMusic();
-} else {
-cancelMusicFade();
-fadeOutAndPauseMusic();
-}
-refreshMusicButton();
-});
-backgroundMusic.addEventListener("play", refreshMusicButton);
-backgroundMusic.addEventListener("pause", refreshMusicButton);
+
+if (musicToggle && backgroundMusic && musicPanel) {
+  musicToggle.addEventListener("click", () => {
+    setMusicPanelOpen(musicPanel.hidden);
+    refreshMusicButton();
+  });
+
+  musicPlayToggle?.addEventListener("click", () => {
+    musicEnabled = !musicEnabled;
+    if (musicEnabled) {
+      musicUnlocked = true;
+      syncBackgroundMusic();
+    } else {
+      cancelMusicFade();
+      fadeOutAndPauseMusic();
+    }
+    refreshMusicButton();
+  });
+
+  musicMuteToggle?.addEventListener("click", () => {
+    musicMuted = !musicMuted;
+    if (musicMuted) {
+      cancelMusicFade();
+      fadeOutAndPauseMusic();
+    } else {
+      musicUnlocked = true;
+      syncBackgroundMusic();
+    }
+    refreshMusicButton();
+  });
+
+  musicVolumeSlider?.addEventListener("input", event => {
+    const nextVolume = Number(event.currentTarget.value);
+    musicVolume = Math.max(0, Math.min(100, Number.isFinite(nextVolume) ? nextVolume : 40)) / 100;
+    if (musicUnlocked && musicEnabled && !musicMuted && shouldBackgroundMusicPlay()) {
+      if (backgroundMusic.paused) {
+        fadeInBackgroundMusic();
+      } else {
+        fadeMusicTo(getMusicTargetVolume());
+      }
+    }
+    refreshMusicButton();
+  });
+
+  document.addEventListener("pointerdown", event => {
+    if (musicPanel.hidden) return;
+    if (musicPanel.contains(event.target) || musicToggle.contains(event.target)) return;
+    setMusicPanelOpen(false);
+  }, { passive: true });
+
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape" || musicPanel.hidden) return;
+    setMusicPanelOpen(false);
+    musicToggle.focus({ preventScroll: true });
+  });
+
+  backgroundMusic.addEventListener("play", refreshMusicButton);
+  backgroundMusic.addEventListener("pause", refreshMusicButton);
+  refreshMusicButton();
 }
 if (videoInviteSection && "IntersectionObserver" in window) {
 const videoMusicObserver = new IntersectionObserver(
