@@ -49,7 +49,7 @@ pointer-events: none;}
 .cover-photo{position: absolute;
 inset: -3%;
 background:
-url("assets/hero-photo.JPG")
+url("assets/prewedding-background.jpg")
 center 44% / cover no-repeat;
 filter: saturate(.72) contrast(1.04);
 transform: scale(1.03);
@@ -218,7 +218,7 @@ color: white;}
 .hero-photo{position: absolute;
 inset: 0;
 background:
-url("assets/hero-photo.JPG")
+url("assets/prewedding-background.jpg")
 center 45% / cover no-repeat;}
 .hero-overlay{position: absolute;
 inset: 0;
@@ -5135,11 +5135,11 @@ color:rgba(241,236,247,.56);}
 width:100%;
 background:rgba(217,205,237,.42);}}
 .cover-photo{background:
-url("assets/hero-photo.JPG") center 44% / cover no-repeat,
+url("assets/prewedding-background.jpg") center 44% / cover no-repeat,
 url("assets/image-fallback.webp") center / cover no-repeat,
 #2B1E35!important;}
 .hero-photo{background:
-url("assets/hero-photo.JPG") center 45% / cover no-repeat,
+url("assets/prewedding-background.jpg") center 45% / cover no-repeat,
 url("assets/image-fallback.webp") center / cover no-repeat,
 #2B1E35!important;}
 .has-image-error{background:linear-gradient(145deg,#F1ECF7,#D9CDED)!important;}
@@ -5666,7 +5666,7 @@ pointer-events: none;
 position: absolute;
 inset: -3%;
 background:
-url("assets/hero-photo.JPG")
+url("assets/prewedding-background.jpg")
 center 44% / cover no-repeat;
 filter: saturate(.72) contrast(1.04);
 transform: scale(1.03);
@@ -11573,8 +11573,8 @@ line-height:1.59!important;
    image as a fallback so this ZIP remains previewable on its own. */
 .luxury-cover .cover-photo {
 background-image:
-url("assets/hero-photo.JPG"),
-url("assets/hero-photo.JPG"),
+url("assets/prewedding-background.jpg"),
+url("assets/prewedding-background.jpg"),
 url("assets/image-fallback.webp") !important;
 background-position:center 44%,center 44%,center !important;
 background-size:cover,cover,cover !important;
@@ -11582,8 +11582,8 @@ background-repeat:no-repeat,no-repeat,no-repeat !important;
 }
 .hero .hero-photo {
 background-image:
-url("assets/hero-photo.JPG"),
-url("assets/hero-photo.JPG"),
+url("assets/prewedding-background.jpg"),
+url("assets/prewedding-background.jpg"),
 url("assets/image-fallback.webp") !important;
 background-position:center 45%,center 45%,center !important;
 background-size:cover,cover,cover !important;
@@ -12140,13 +12140,13 @@ body.opening-complete.signature-premium .hero-name-weds{
 
 /* Use the uploaded hero photo without loading a remote copy beneath it. */
 .luxury-cover .cover-photo{
-  background-image:url("assets/hero-photo.JPG"),url("assets/image-fallback.webp")!important;
+  background-image:url("assets/prewedding-background.jpg"),url("assets/image-fallback.webp")!important;
   background-position:center 44%,center!important;
   background-size:cover,cover!important;
   background-repeat:no-repeat,no-repeat!important;
 }
 .signature-premium .hero .hero-photo{
-  background-image:url("assets/hero-photo.JPG"),url("assets/image-fallback.webp")!important;
+  background-image:url("assets/prewedding-background.jpg"),url("assets/image-fallback.webp")!important;
   background-position:center 45%,center!important;
   background-size:cover,cover!important;
   background-repeat:no-repeat,no-repeat!important;
@@ -12550,3 +12550,24 @@ body.signature-premium::before{
   #couple .couple-name-block .family{font-size:11px;}
 }
 @media(prefers-reduced-motion:reduce){#couple .couple-together-card{scroll-behavior:auto;}}
+
+
+/* =======================================================
+   V42.6.58 — SHARED PRE-WEDDING COVER/HERO + NO EMBEDDED MAPS
+   ======================================================= */
+/* Both the invitation cover and main hero use the full-page pre-wedding photo. */
+.cover-photo,
+.hero-photo{
+  background-image:url("assets/prewedding-background.jpg"),url("assets/image-fallback.webp")!important;
+  background-position:center center,center center;
+  background-size:cover,cover;
+  background-repeat:no-repeat,no-repeat;
+}
+/* With map embeds removed, let venue details span the complete card width. */
+.location-card-premium,
+.location-section-alt .location-card-premium{
+  grid-template-columns:minmax(0,1fr)!important;
+}
+.location-section-alt .location-details{
+  order:initial!important;
+}
