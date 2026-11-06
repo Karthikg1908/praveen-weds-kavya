@@ -12571,3 +12571,186 @@ body.signature-premium::before{
 .location-section-alt .location-details{
   order:initial!important;
 }
+
+
+/* =========================================================
+   V42.6.59 — UNIFIED COVER + HERO PRESENTATION
+   Both opening cover and main hero share the same image crop,
+   brightness, overlay and clean full-screen presentation.
+========================================================= */
+.luxury-cover .cover-photo,
+.hero .hero-photo {
+  position: absolute !important;
+  inset: 0 !important;
+  background-image:
+    url("assets/prewedding-background.jpg"),
+    url("assets/image-fallback.webp") !important;
+  background-position: center 45%, center 45% !important;
+  background-size: cover, cover !important;
+  background-repeat: no-repeat, no-repeat !important;
+  filter: none !important;
+  transform: none !important;
+  animation: none !important;
+}
+
+/* Use the exact same plum-toned photo overlay in both scenes. */
+.luxury-cover .cover-vignette,
+.hero .hero-overlay {
+  display: block !important;
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: 1 !important;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(31,20,40,.43) 0%,
+      rgba(38,25,48,.38) 36%,
+      rgba(27,17,36,.66) 100%
+    ),
+    radial-gradient(
+      circle at 50% 44%,
+      transparent 24%,
+      rgba(28,18,37,.25) 78%
+    ) !important;
+}
+
+/* Remove the extra opening-only blur layer so the photograph reads
+   identically before and after the invitation opens. */
+.luxury-cover .opening-home-veil {
+  display: none !important;
+  opacity: 0 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+.luxury-cover > .cover-noise,
+.luxury-cover > .floating-specks {
+  display: none !important;
+}
+
+/* Let the cover typography sit directly over the shared photograph,
+   rather than on a separate opaque arch card. */
+.luxury-cover .royal-arched-welcome {
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  padding: 34px 24px 28px !important;
+  overflow: visible !important;
+}
+.luxury-cover .royal-arched-welcome::before,
+.luxury-cover .royal-arched-welcome::after,
+.luxury-cover .royal-arched-welcome > .royal-arch-crest,
+.luxury-cover .royal-arched-welcome > .box-frame,
+.luxury-cover .royal-arched-welcome > .corner-ornament {
+  display: none !important;
+}
+.luxury-cover .opening-frame-shell {
+  width: min(920px, 94vw) !important;
+  height: min(650px, 84dvh) !important;
+  max-height: 90dvh !important;
+}
+.luxury-cover .opening-hero-copy {
+  position: relative;
+  z-index: 8;
+  width: min(760px, 92%);
+  margin: 0 auto 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.luxury-cover .stage-welcome-kicker {
+  width: min(620px, 92%) !important;
+  margin: 0 auto clamp(18px, 3vh, 28px) !important;
+  color: #E7D5B7 !important;
+  font-size: clamp(9px, 1.1vw, 11px) !important;
+  letter-spacing: .28em !important;
+}
+.luxury-cover .opening-kannada-line {
+  margin: 0 0 clamp(12px, 2vh, 18px) !important;
+  color: #E3D8EF !important;
+  font-family: "Noto Serif Kannada", "Noto Sans Kannada", serif !important;
+  font-size: clamp(20px, 3.1vw, 30px) !important;
+  font-weight: 500 !important;
+  line-height: 1.5 !important;
+  text-shadow: 0 3px 18px rgba(20,11,28,.42) !important;
+}
+.luxury-cover .opening-couple-names {
+  display: flex !important;
+  align-items: baseline !important;
+  justify-content: center !important;
+  gap: clamp(10px, 2vw, 18px) !important;
+  margin: 0 !important;
+  color: #FFFAFF !important;
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif !important;
+  font-size: clamp(46px, 7vw, 76px) !important;
+  font-weight: 500 !important;
+  line-height: 1.05 !important;
+  letter-spacing: -.035em !important;
+  text-shadow: 0 5px 24px rgba(20,11,28,.48) !important;
+}
+.luxury-cover .opening-couple-names i {
+  color: #E8C899 !important;
+  font-size: .62em !important;
+}
+.luxury-cover .opening-name-divider {
+  width: min(300px, 66%) !important;
+  margin: clamp(16px, 2.4vh, 22px) auto !important;
+}
+.luxury-cover .opening-name-divider span {
+  background: linear-gradient(90deg, transparent, rgba(232,200,153,.75)) !important;
+}
+.luxury-cover .opening-name-divider span:last-child {
+  background: linear-gradient(90deg, rgba(232,200,153,.75), transparent) !important;
+}
+.luxury-cover .opening-name-divider i {
+  color: #E8C899 !important;
+}
+.luxury-cover .welcome-message-premium {
+  max-width: min(680px, 92%) !important;
+  margin: 0 auto 8px !important;
+  color: rgba(255,252,255,.94) !important;
+  font-family: "Cormorant Garamond", serif !important;
+  font-size: clamp(19px, 2.6vw, 27px) !important;
+  line-height: 1.45 !important;
+  letter-spacing: .015em !important;
+  text-shadow: 0 3px 18px rgba(20,11,28,.48) !important;
+}
+.luxury-cover .opening-together-line {
+  margin: 0 !important;
+  color: rgba(250,243,253,.92) !important;
+  font-family: "Great Vibes", cursive !important;
+  font-size: clamp(24px, 3.2vw, 34px) !important;
+  line-height: 1.35 !important;
+  text-shadow: 0 3px 16px rgba(20,11,28,.5) !important;
+}
+.luxury-cover .stage-entry-actions {
+  position: relative;
+  z-index: 25;
+}
+@media (max-width: 600px) {
+  .luxury-cover .opening-frame-shell {
+    width: 94vw !important;
+    height: min(610px, 84dvh) !important;
+  }
+  .luxury-cover .royal-arched-welcome {
+    padding: 24px 14px 22px !important;
+  }
+  .luxury-cover .stage-welcome-kicker {
+    letter-spacing: .19em !important;
+    margin-bottom: 15px !important;
+  }
+  .luxury-cover .opening-kannada-line {
+    font-size: clamp(18px, 5vw, 23px) !important;
+  }
+  .luxury-cover .opening-couple-names {
+    font-size: clamp(42px, 11vw, 58px) !important;
+    gap: 8px !important;
+  }
+  .luxury-cover .welcome-message-premium {
+    font-size: clamp(17px, 4.4vw, 21px) !important;
+    max-width: 96% !important;
+  }
+}
